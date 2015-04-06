@@ -1,6 +1,6 @@
 # JSCO
 
-[Heroku link][http://www.google.com]
+[Heroku link](http://www.google.com)
 
 ## Minimum Viable Product
 Jsco is a clone of Vsco built on Rails and Backbone. Users can:
