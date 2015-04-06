@@ -1,6 +1,6 @@
 # JSCO
 
-[Heroku link](http://www.google.com)
+[Heroku link](http://jsco.herokuapp.com)
 
 ## Minimum Viable Product
 Jsco is a clone of Vsco built on Rails and Backbone. Users can:
@@ -42,7 +42,7 @@ involved.
 
 [Details][phase-two]
 
-### Phase 3: feed (~2 days)
+### Phase 3: Feed (~2 days)
 I'll start by adding a `feed` route that uses the `current_user`'s
 `subscribed_users` association to serve a list of image posts ordered
 chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
