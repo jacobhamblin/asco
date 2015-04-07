@@ -14,6 +14,7 @@ gem 'rename'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'sprockets', '~> 2.0'
+gem 'newrelic_rpm'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
