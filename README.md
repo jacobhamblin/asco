@@ -1,9 +1,9 @@
-# JSCO
+# asco
 
-[Heroku link](http://jsco.herokuapp.com)
+[Heroku link](http://asco.herokuapp.com)
 
 ## Minimum Viable Product
-Jsco is a clone of Vsco built on Rails and Backbone. Users can:
+asco is a clone of vsco built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
@@ -28,7 +28,7 @@ Jsco is a clone of Vsco built on Rails and Backbone. Users can:
 
 ### Phase 1: User Authentication, grid start (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to access the jsco
+App Academy. By the end of this phase, users will be able to access the asco
 grid. The most important part of this phase will be pushing the app to Heroku
 and ensuring that everything works before moving on to phase 2.
 
@@ -69,7 +69,7 @@ to gain valuable front-end knowledge through this exercise.
 - [ ] Drop down on show page for extra image info
 - [ ] Journal MVC
 - [ ] Pagination/infinite scroll
-- [ ] jsco, film, cam, keys navbar and mvc
+- [ ] asco, film, cam, keys navbar and mvc
 - [ ] User avatars
 - [ ] Typeahead search bar
 

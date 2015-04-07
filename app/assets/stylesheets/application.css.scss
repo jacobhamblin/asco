@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'bootstrap';
+
+ .navbar {
+   border: none;
+   background-color: #f9f9f9;
+ }

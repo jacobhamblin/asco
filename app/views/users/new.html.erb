@@ -1,0 +1,21 @@
+Sign Up
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+    <p>Error:</p>
+    <%= err %>
+  <% end %>
+<% end %><br><br>
+
+<form action="<%= users_url %>" method="post">
+  <%= auth_token_input %>
+  <label for="email">Email</label>
+  <input type="text" name="user[email]" id="email">
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id="password">
+  <br>
+
+  <input type="submit" value="Sign Up">
+</form>
