@@ -5,16 +5,20 @@
   <% end %>
 <% end %><br><br>
 
-<form action="<%= users_url %>" method="post">
-  <center>
-  <%= auth_token_input %>
-  <input type="text" name="user[email]" placeholder="Email">
-  <br>
-  <br>
+<div class="entry form">
+  <form action="<%= users_url %>" method="post">
+    <center>
+    <%= auth_token_input %>
+    <input type="text" name="user[email]" placeholder="Email"
+    class="ffield">
+    <br>
+    <br>
 
-  <input type="password" name="user[password]" placeholder="Password">
-  <br>
-  <br>
+    <input type="password" name="user[password]" placeholder="Password"
+    class="ffield">
+    <br>
+    <br>
 
-  <input type="submit" value="Sign Up">
-</form>
+    <input type="submit" value="Sign Up" class"btn enter">
+  </form>
+</div>

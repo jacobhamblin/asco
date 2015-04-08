@@ -131,6 +131,27 @@ body {
   padding-bottom: 0px;
 }
 
-:button {
+.btn {
   width: 155px;
+  padding: 10px 0;
+  border-radius: 0;
+}
+
+.ffield {
+  padding: 5px;
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: bold;
+  font-size: .75rem;
+  letter-spacing: .1em;
+  margin-bottom: 20px;
+}
+
+.btn .register {
+  margin-bottom: 40px;
+}
+
+.btn .enter {
+  color: white;
+  background-color: #bbbbbb;
+  width: 100%
 }

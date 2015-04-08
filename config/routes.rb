@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   get 'session/delete', :to => 'sessions#delete'
   get 'users/session/delete', :to => 'sessions#delete'
+  namespace :api, defaults: { format: :json } do
+    resources :images
+  end
 end

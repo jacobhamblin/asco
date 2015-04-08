@@ -14,9 +14,18 @@
 class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, :session_token, uniqueness: true
+  validates :email, :session_token, uniqueness:   true
 
   attr_reader :password
+
+  has_many :images, foreign_key: :owner_id
+  has_many :followed_users
+  has_many :followings, class_name: :Following, foreign_key: :recipient_id
+  has_many :following_users, through: :followings, source: :issuer
+  has_many :follows, class_name: :Following, foreign_key: :issuer_id
+  has_many :followed_users, through: :follows, source: :recipient
+  has_many :followed_images, through: :followed_users, source: :images
+
 
   before_validation :ensure_session_token
 
