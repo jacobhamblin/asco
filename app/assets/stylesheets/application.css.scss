@@ -14,9 +14,43 @@
  *= require_self
  */
 
+ @font-face {
+   font-family: 'Proxima Nova';
+   src: url('https://s3-us-west-1.amazonaws.com/asco-jkh/fonts/proxima+nova/ProximaNova-Light.otf')
+ }
+
  @import 'bootstrap';
 
  .navbar {
+   height: 60px;
    border: none;
    background-color: #f9f9f9;
+   margin: 24px;
+   font-family: 'Proxima Nova', sans-serif;
+   font-weight: bold;
+   text-transform: uppercase;
+   font-size: 12px;
+   letter-spacing: 2px;
+ }
+
+ .container-fluid .navbar-brand {
+   width: 70px;
+   height: 60px;
+   padding: 0px;
+ }
+
+ .navbar-default .navbar-right > li > a {
+   &:hover {
+     color: #000000;
+   }
+   color: #999999;
+ }
+
+ .navbar .logo {
+   width: 70px;
+   height: 60px;
+ }
+
+ body {
+   font-family: 'Proxima Nova', sans-serif;
  }
