@@ -6,13 +6,16 @@
 <% end %><br><br>
 
 <form action="<%= session_url %>" method="post">
+  <center>
   <%= auth_token_input %>
   <input type="text" name="user[email]" placeholder="Email">
+  <br>
   <br>
 
   <input type="password" name="user[password]" placeholder="Password">
   <br>
+  <br>
 
-  <input type="submit" value="Sign In"><br>
+  <input type="submit" value="Sign In"><br><br>
 </form>
   <%= button_to "Register", new_user_url, method: :get %>
