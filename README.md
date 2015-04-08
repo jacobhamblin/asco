@@ -1,14 +1,14 @@
 # asco
 
-[Heroku link](http://asco.herokuapp.com)
+[Heroku link](http://asco.hamblin.cc)
 
 ## Minimum Viable Product
 asco is a clone of vsco built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [x] Create accounts
+- [x] Create sessions (log in)
 - [ ] Create grid
 - [ ] Create image show
 - [ ] Create feed
@@ -72,6 +72,8 @@ to gain valuable front-end knowledge through this exercise.
 - [ ] asco, film, cam, keys navbar and mvc
 - [ ] User avatars
 - [ ] Typeahead search bar
+- [ ] Animate guest log-in
+- [ ] Automated periodic seed process
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

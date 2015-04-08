@@ -1,5 +1,3 @@
-Sign In
-
 <% if flash[:errors] %>
   <% flash[:errors].each do |err| %>
     <p>Error:</p>
@@ -8,17 +6,10 @@ Sign In
 <% end %><br><br>
 
 <form action="<%= session_url %>" method="post">
-  <%= auth_token_input %>
-  <label for="username">Username</label>
-  <input type="text" name="user[username]" id="username">
+  <input type="text" name="user[email]" placeholder="Email">
   <br>
 
-  <label for="email">Email</label>
-  <input type="text" name="user[email]" id="email">
-  <br>
-
-  <label for="password">Password</label>
-  <input type="password" name="user[password]" id="password">
+  <input type="password" name="user[password]" placeholder="Password">
   <br>
 
   <input type="submit" value="Sign In"><br>

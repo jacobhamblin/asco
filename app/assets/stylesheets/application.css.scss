@@ -16,10 +16,19 @@
 
  @font-face {
    font-family: 'Proxima Nova';
-   src: url('https://s3-us-west-1.amazonaws.com/asco-jkh/fonts/proxima+nova/ProximaNova-Light.otf')
+   src: url('https://s3-us-west-1.amazonaws.com/asco-jkh/fonts/proxima+nova/ProximaNova-Semibold.otf')
  }
 
  @import 'bootstrap';
+
+html {
+  font-size: 16px;
+}
+
+body {
+   font-family: 'Proxima Nova', sans-serif;
+   font-size: 14px;
+ }
 
  .navbar {
    height: 60px;
@@ -29,11 +38,13 @@
    font-family: 'Proxima Nova', sans-serif;
    font-weight: bold;
    text-transform: uppercase;
-   font-size: 12px;
-   letter-spacing: 2px;
+   font-size: .75rem;
+   letter-spacing: .1em;
+   position: relative;
  }
 
  .container-fluid .navbar-brand {
+   left: 2px;
    width: 70px;
    height: 60px;
    padding: 0px;
@@ -47,10 +58,39 @@
  }
 
  .navbar .logo {
+   left: 2px;
    width: 70px;
    height: 60px;
  }
 
- body {
-   font-family: 'Proxima Nova', sans-serif;
+ .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+   margin-left: -12px;
  }
+
+.navbar-right {
+  margin-right: -45px;
+  height: 60px;
+  li {
+    background: url('divider.png') 0 no-repeat;
+    height: 60px;
+    padding-left: 1px;
+  }
+  li:not(.navbar-search-li) {
+    padding-top: 20px;
+    a {
+      height: 60px;
+    }
+  }
+}
+
+.nav > li > a {
+  padding: 0 15px;
+  &.navbar-search-a {
+    padding: 0px;
+  }
+}
+
+.navbar-nav > li > a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
