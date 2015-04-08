@@ -70,17 +70,53 @@ body {
 .navbar-right {
   margin-right: -45px;
   height: 60px;
-  li {
+  li:not(.dropdown-item) {
     background: url('divider.png') 0 no-repeat;
     height: 60px;
     padding-left: 1px;
   }
-  li:not(.navbar-search-li) {
+  li:not(.navbar-search-li):not(.dropdown-item):not(.dropdown-item > a) {
     padding-top: 20px;
     a {
       height: 60px;
     }
   }
+}
+
+.navbar-right > li:not(.navbar-search-li) {
+  padding-top: 20px;
+}
+
+.navbar-right .dropdown-item {
+  font-size:.75rem;
+  height: 20px;
+  width: 100%;
+  &:hover {
+    background-color: #f9f9f9;
+    height: 20px;
+    width: 100%;
+  }
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+}
+
+.navbar-right .dropdown-menu {
+  left: 0;
+}
+
+.dropdown-menu {
+  border: none;
+  padding: 0 0;
+}
+
+.dropdown-item {
+  background-color: #f9f9f9;
+}
+
+.dropdown-item > a:hover {
+  height: auto;
 }
 
 .nav > li > a {

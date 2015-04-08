@@ -6,6 +6,7 @@
 <% end %><br><br>
 
 <form action="<%= session_url %>" method="post">
+  <%= auth_token_input %>
   <input type="text" name="user[email]" placeholder="Email">
   <br>
 
