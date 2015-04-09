@@ -163,12 +163,18 @@ body {
   color: white;
   background: #bbbbbb;
   width: 255px;
+  &:hover {
+    background: #b6b6b6;
+  }
 }
 
 .btn.enter {
   color: white;
   background: #a6a547;
   width: 255px;
+  &:hover {
+    background: #9f9e44;
+  }
 }
 
 .homepage {
