@@ -16,6 +16,7 @@
 //= require backbone
 //= require asco
 //= require_tree ../templates
+//= require composite_view
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
