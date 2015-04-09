@@ -6,6 +6,10 @@ Asco.Views.MyGridView = Backbone.CompositeView.extend({
     "click .image": "showImage"
   },
 
+  initialize: function () {
+    this.listenTo(this.collection, "sync", this.render);
+  },
+
   render: function () {
     var content = this.template({
       images: this.collection

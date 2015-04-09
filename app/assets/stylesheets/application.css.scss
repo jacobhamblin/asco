@@ -158,14 +158,18 @@ body {
   border: none;
 }
 
-.btn.register {
-  margin-bottom: 40px;
+.btn.grey {
   color: white;
   background: #bbbbbb;
   width: 255px;
+  margin-bottom: 20px;
   &:hover {
     background: #b6b6b6;
   }
+}
+
+.btn.register {
+  margin-bottom: 40px;
 }
 
 .btn.enter {

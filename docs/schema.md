@@ -1,12 +1,13 @@
 # Schema Information
 
 ## images
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-curated     | boolean   | default false
-url         | string    | not null
+column name | data type   | details
+------------|-------------|-----------------------
+id          | integer     | not null, primary key
+owner_id    | integer     | not null, foreign key (references users)
+curated     | boolean     | default false
+url         | string      | not null
+description | description | can be null
 
 ## followings
 column name       | data type | details

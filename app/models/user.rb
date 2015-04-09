@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :follows, source: :recipient
   has_many :followed_images, through: :followed_users, source: :images
 
-
   before_validation :ensure_session_token
 
   def self.generate_session_token

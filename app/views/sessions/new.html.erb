@@ -23,5 +23,13 @@
 
     <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
   </form>
-    <%= link_to "Register", new_user_url, class: "btn register" %>
+    <button class="btn guest-login grey">Guest Login</button><br>
+    <%= link_to "Register", new_user_url, class: "btn grey" %>
 </div>
+
+<script>
+  $('.btn.guest-login.grey').click(function(){
+    $("input[name='user[email]']").val('example@demo.com');
+    $("input[name='user[password]']").val('password');
+  })
+</script>

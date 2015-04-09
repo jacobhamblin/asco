@@ -1,5 +1,5 @@
-Asco.Views.GridView = Backbone.CompositeView.extend({
-  template: JST['images/grid'],
+Asco.Views.FeedView = Backbone.CompositeView.extend({
+  template: JST['images/feed'],
   className: 'images',
 
   events: {

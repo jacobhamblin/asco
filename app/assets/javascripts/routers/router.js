@@ -17,7 +17,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
   },
 
   feed: function () {
-    this.images.fetch({ data: { source: feed } });
+    this.images.fetch({ data: { source: "feed" } });
 
     var feedView = new Asco.Views.FeedView({
       collection: this.images
@@ -27,7 +27,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
   },
 
   grid: function () {
-    this.images.fetch({ data: { source: grid } });
+    this.images.fetch({ data: { source: "grid" } });
 
     var gridView = new Asco.Views.GridView({
       collection: this.images
@@ -58,7 +58,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
-    this._currenView = view;
+    this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
 });
