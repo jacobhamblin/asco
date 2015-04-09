@@ -1,14 +1,14 @@
 Asco.Routers.Router = Backbone.Router.extend ({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.images = Backbone.Collections.Images();
+    this.images = new Asco.Collections.Images();
   },
 
   routes: {
     '': 'index',
     'feed': 'feed',
     'grid': 'grid',
-    'myGrid': 'myGrid',
+    'users/:id': 'userGrid',
     // 'search': 'search'
   },
 
@@ -36,8 +36,8 @@ Asco.Routers.Router = Backbone.Router.extend ({
     this._swapView(gridView);
   },
 
-  myGrid: function () {
-    this.images.fetch({ data: { source: myGrid } });
+  userGrid: function (id) {
+    this.images.fetch({ data: { source: id } });
 
     var myGridView = new Asco.Views.MyGridView({
       collection: this.images

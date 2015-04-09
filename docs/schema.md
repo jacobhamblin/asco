@@ -23,3 +23,4 @@ username        | string    | can be null
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
+avatar          | string    | default url provided

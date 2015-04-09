@@ -7,8 +7,8 @@ class Api::ImagesController < ApplicationController
       @images = current_user.followed_images
     when "grid"
       @images = Image.all.where(curated: true)
-    when "myGrid"
-      @images = current_user.images
+    when /(\d+)/
+      @images = User.find($1).images
     else
       @images = Image.all
     end

@@ -1,6 +1,6 @@
 # asco
 
-[Heroku link](http://asco.hamblin.cc)
+[Live](http://asco.hamblin.cc)
 
 ## Minimum Viable Product
 asco is a clone of vsco built on Rails and Backbone. Users can:
@@ -38,8 +38,7 @@ involved.
 [Details][phase-two]
 
 ### Phase 3: Feed (~2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s `followed_users` association to serve a list of image posts ordered chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.
+I'll start by adding a `feed` route that uses the `current_user`'s `followed_users` association to serve a list of image posts ordered chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts` collection fetches from the new route.
 
 [Details][phase-three]
 
