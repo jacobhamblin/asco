@@ -13,15 +13,15 @@
 <div class="entry-area">
   <form action="<%= session_url %>" method="post">
     <%= auth_token_input %>
-    <input type="text" name="user[email]" placeholder="Email" class="ffield">
+    <input type="text" name="user[email]" placeholder="Email" class="ffield" tabindex="1">
     <br>
     <br>
 
-    <input type="password" name="user[password]" placeholder="Password" class="ffield">
+    <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="2">
     <br>
     <br>
 
-    <input type="submit" value="Sign In" class="btn enter"><br><br>
+    <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
   </form>
     <%= link_to "Register", new_user_url, class: "btn register" %>
 </div>
