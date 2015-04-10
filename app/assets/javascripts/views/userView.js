@@ -1,5 +1,5 @@
-Asco.Views.MyGridView = Backbone.CompositeView.extend({
-  template: JST['images/myGrid'],
+Asco.Views.UserView = Backbone.CompositeView.extend({
+  template: JST['images/userGrid'],
   className: 'images',
 
   events: {
@@ -11,6 +11,7 @@ Asco.Views.MyGridView = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    debugger
     var content = this.template({
       images: this.collection
     });

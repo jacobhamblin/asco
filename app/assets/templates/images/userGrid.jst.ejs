@@ -1,0 +1,14 @@
+<div class="header">
+  <% if (images.first()) { %>
+    <img src="<%= images.first().owner().escape('avatar') %>" class="avatar-user-show"><br>
+    <span class="user-show-title"><%= images.first().owner().escape('username') ? images.first().owner().escape('username') :  images.first().owner().escape('email') %></span>
+  <% } %>
+</div>
+
+<ul class="images">
+  <% images.each(function (image) { %>
+    <li>
+      <a href="#/images/<%= image.id %>"><img src="<%= image.escape('url') %>">
+    </li>
+  <% }); %>
+</ul>
