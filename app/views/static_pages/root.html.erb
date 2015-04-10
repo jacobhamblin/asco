@@ -5,9 +5,3 @@
 <script type="text/javascript" charset="utf-8">
   $(Asco.initialize());
 </script>
-
-<% if current_user.username %>
-  <h3>welcome <%= current_user.username %> </h3>
-<% else %>
-  <h3>welcome <%= current_user.email %> </h3>
-<% end %>

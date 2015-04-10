@@ -32,8 +32,7 @@ I will implement user authentication in Rails based on the practices learned at 
 [Details][phase-one]
 
 ### Phase 2: Viewing images, improve ui/ux (~2 days)
-I will add API routes to serve image view data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to select images and view them and backbone will be
-involved.
+I will add API routes to serve image view data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to select images and view them and backbone will be involved.
 
 [Details][phase-two]
 

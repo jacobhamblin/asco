@@ -9,8 +9,8 @@ class Api::ImagesController < ApplicationController
       @images = Image.all.where(curated: true)
     when /(\d+)/
       @images = User.find($1).images
-    when /img(\d+)/
-      @images = User.find(Image.find($1).owner_id).images
+    # when /img(\d+)/
+    #   @images = User.find(Image.find($1).owner_id).images
     else
       @images = Image.all
     end

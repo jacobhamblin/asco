@@ -50,9 +50,9 @@ Asco.Routers.Router = Backbone.Router.extend ({
 
   show: function (id) {
     this.image.fetch(id);
-    this.images.fetch({ data: { source: "img" + id } });
+    // this.images.fetch({ data: { source: "img" + id } });
 
-    var showView = new Asco.Views.showView({
+    var showView = new Asco.Views.ShowView({
       model: this.image,
       collection: this.images
     });
