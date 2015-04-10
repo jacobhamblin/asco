@@ -3,19 +3,18 @@ Asco.Collections.Images = Backbone.Collection.extend({
   model: Asco.Models.Image,
 
   getOrFetch: function (id) {
-    var post = this.get(id);
-    that = this;
-    if (!post) {
-      post = new PostApp.Models.Post({ id: id });
-      post.fetch({
+    var image = this.get(id);
+    images = this;
+    if (!image) {
+      image = new Asco.Models.Image({ id: id });
+      image.fetch({
         success: function () {
-          that.add(post);
+          images.add(image);
         },
       });
     } else {
-      post.fetch();
+      image.fetch();
     }
-    return post;
-  }
-
+    return image;
+  },
 });

@@ -10,7 +10,7 @@ asco is a clone of vsco built on Rails and Backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Create grid
-- [ ] Create image show
+- [x] Create image show
 - [x] Create feed
 - [ ] Follow users
 - [ ] View a feed of followed user

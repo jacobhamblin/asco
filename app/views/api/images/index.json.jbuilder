@@ -1,1 +1,1 @@
-json.array! @images, partial: 'api/images/show', as: :image
+json.array! @images, partial: 'api/images/image', as: :image
