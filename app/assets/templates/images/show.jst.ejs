@@ -1,7 +1,9 @@
 <div class="header">
-  <a href="#users/<%= image.owner().id %>" class="image-show-title">
-  <%= image.owner().escape('username') ? image.owner().escape('username') : image.owner().escape('email') %>
-  </a>
+  <center>  
+    <a href="#users/<%= image.owner().id %>" class="image-show-title">
+    <%= image.owner().escape('username') ? image.owner().escape('username') : image.owner().escape('email') %>
+    </a>
+  </center>
 </div>
 
 <div class="image-show clearfix">

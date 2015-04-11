@@ -7,20 +7,24 @@
   <% end %>
 <% end %><br><br>
 
-<div class="entry form">
-  <form action="<%= users_url %>" method="post">
-    <center>
-    <%= auth_token_input %>
-    <input type="text" name="user[email]" placeholder="Email"
-    class="ffield" tabindex="1">
-    <br>
-    <br>
+<div class="signin-page"></div>
 
-    <input type="password" name="user[password]" placeholder="Password"
-    class="ffield" tabindex="2">
-    <br>
-    <br>
+<div class="entry-area">
+  <center>
+    <img class='logo-home' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/logo_asco_white_no_bg.png'><br><br><br>
+    <form action="<%= users_url %>" method="post">
+      <%= auth_token_input %>
+      <input type="text" name="user[email]" placeholder="Email"
+      class="ffield" tabindex="1">
+      <br>
+      <br>
 
-    <input type="submit" value="Sign Up" class"btn enter" tabindex="3">
-  </form>
+      <input type="password" name="user[password]" placeholder="Password"
+      class="ffield" tabindex="2">
+      <br>
+      <br>
+
+      <input type="submit" value="Register" class="btn enter" tabindex="3">
+    </form>
+  </center>
 </div>

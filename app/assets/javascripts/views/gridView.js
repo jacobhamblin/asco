@@ -1,21 +1,16 @@
 Asco.Views.GridView = Backbone.CompositeView.extend({
   template: JST['images/grid'],
-  className: 'images',
-
-  events: {
-    "click .image": "showImage"
-  },
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
   },
 
   renderGrid: function () {
-    $('.feed-images').gridalicious({
+    $('.grid-images').gridalicious({
       width: 300,
       selector: '.image-item-a'
     });
-    $('.feed-images').gridalicious({
+    $('.grid-images').gridalicious({
       gutter: 20,
       animate: true,
       animationOptions: {

@@ -1,14 +1,14 @@
-<div class="header">
+<div class="header-usergrid">
+  <center>
   <% if (images.first()) { %>
-    <img src="<%= images.first().owner().escape('avatar') %>" class="avatar-user-show"><br>
+    <img src="<%= images.first().owner().escape('avatar') %>" class="avatar-usergrid"><br>
     <span class="user-show-title"><%= images.first().owner().escape('username') ? images.first().owner().escape('username') :  images.first().owner().escape('email') %></span>
   <% } %>
+  </center>
 </div>
 
-<ul class="images">
-  <% images.each(function (image) { %>
-    <li>
-      <a href="#images/<%= image.id %>"><img src="<%= image.escape('url') %>">
-    </li>
+<div class="user-images">
+    <% images.each(function (image) { %>
+    <a href="#images/<%= image.id %>" class="image-item-a"><img src="<%= image.escape('url') %>" class="image-item">
   <% }); %>
-</ul>
+</div>
