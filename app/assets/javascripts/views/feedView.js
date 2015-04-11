@@ -1,6 +1,6 @@
 Asco.Views.FeedView = Backbone.CompositeView.extend({
   template: JST['images/feed'],
-  className: 'images',
+  className: 'feed-images',
   wide: window.innerWidth,
   tall: window.innerHeight,
 
