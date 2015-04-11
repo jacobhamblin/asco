@@ -1,7 +1,5 @@
-<ul class="images">
+<div class="images">
   <% images.each(function (image) { %>
-    <li>
-      <a href="#/images/<%= image.id %>"><img src="<%= image.escape('url') %>">
-    </li>
+      <a class="image-item-a" href="#/images/<%= image.id %>"><img class=".image-item" src="<%= image.escape('url') %>">
   <% }); %>
-</ul>
+</div>

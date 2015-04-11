@@ -1,7 +1,6 @@
-<ul class="images">
-  <% images.each(function (image) { %>
-    <li>
-      <a href="#/images/<%= image.id %>"><img src="<%= image.escape('url') %>">
-    </li>
-  <% }); %>
-</ul>
+
+<img src="" class="">
+
+<% images.each(function (image) { %>
+    <a href="#/images/<%= image.id %>"><img src="<%= image.escape('url') %>">
+<% }); %>
