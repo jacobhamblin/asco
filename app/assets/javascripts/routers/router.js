@@ -6,7 +6,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
   },
 
   routes: {
-    '': 'index',
+    '': 'feed',
     'feed': 'feed',
     'grid': 'grid',
     'users/:id': 'userGrid',

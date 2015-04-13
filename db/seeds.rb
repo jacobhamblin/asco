@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({email: 'example@demo.com', password: 'password'})
-User.create({username: 'hunter', email: 'hunter@gmail.com', password: 'hunter2'})
-User.create({email: 'marco@polo.com', password: 'password'})
+User.create({email: 'example@demo.com', password: 'password', avatar: 'http://i.vsco.co/54187aa77367084a3a8b4c1f?w=300&c=1&d=1'})
+User.create({username: 'hunter', email: 'hunter@gmail.com', password: 'hunter2', avatar: 'http://i.vsco.co/5529d729e355150e638b4570?w=300&c=1&d=1'})
+User.create({email: 'marco@polo.com', password: 'password', avatar: 'http://i.vsco.co/545859047267083f788b4584?w=300&c=1&d=1'})
 User.create({username: 'bradley', email: 'bradleybradley@hotmail.com', password: 'bradley'})
 
 Following.create({issuer_id: 1, recipient_id: 2})
