@@ -11,12 +11,6 @@
     <% images.each(function (image) { %>
     <div class="item">
       <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
-      <a href="" class="image-owner">
-      <% if (image.owner().escape('username')) { %>
-        <%= image.owner().escape('username') %>
-      <% } else { %>
-        <%= image.owner().escape('email') %>
-      <% } %></a>
     </div>
   <% }); %>
 </div>

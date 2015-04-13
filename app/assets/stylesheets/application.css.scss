@@ -327,6 +327,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
+  margin-bottom: 23px;
   width: 64px;
   height: 64px;
   display: block;
@@ -430,4 +431,13 @@ body {
   margin-right: auto;
   width: 90%;
   display: block;
+}
+
+.user-show-title {
+  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
+  font-size: .8125rem;
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: .2em;
+  text-transform: uppercase;
 }
