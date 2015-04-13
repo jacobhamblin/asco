@@ -6,17 +6,15 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
   },
 
   renderGrid: function () {
-    $('.grid-images').gridalicious({
+    $('.grida-images').gridalicious({
       width: 300,
-      selector: '.image-item-a'
-    });
-    $('.grid-images').gridalicious({
-      gutter: 20,
+      gutter: 40,
+      selector: '.item',
       animate: true,
       animationOptions: {
-        queue: true,
-        speed: 400,
-        duration: 800,
+        queue: false,
+        speed: 200,
+        duration: 1200,
         effect: 'fadeInOnAppear'
       }
     });

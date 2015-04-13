@@ -7,8 +7,16 @@
   </center>
 </div>
 
-<div class="user-images">
+<div class="grida-images">
     <% images.each(function (image) { %>
-    <a href="#images/<%= image.id %>" class="image-item-a"><img src="<%= image.escape('url') %>" class="image-item">
+    <div class="item">
+      <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
+      <a href="" class="image-owner">
+      <% if (image.owner().escape('username')) { %>
+        <%= image.owner().escape('username') %>
+      <% } else { %>
+        <%= image.owner().escape('email') %>
+      <% } %></a>
+    </div>
   <% }); %>
 </div>

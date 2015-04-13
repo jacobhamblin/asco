@@ -1,26 +1,24 @@
 Asco.Views.UserView = Backbone.CompositeView.extend({
   template: JST['images/userGrid'],
-  
+
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
   },
 
-    renderGrid: function () {
-      $('.user-images').gridalicious({
-        width: 300,
-        selector: '.image-item-a'
-      });
-      $('.user-images').gridalicious({
-        gutter: 20,
-        animate: true,
-        animationOptions: {
-          queue: true,
-          speed: 400,
-          duration: 800,
-          effect: 'fadeInOnAppear'
-        }
-      });
-    },
+  renderGrid: function () {
+    $('.grida-images').gridalicious({
+      width: 300,
+      gutter: 40,
+      selector: '.item',
+      animate: true,
+      animationOptions: {
+        queue: false,
+        speed: 200,
+        duration: 1200,
+        effect: 'fadeInOnAppear'
+      }
+    });
+  },
 
   render: function () {
     var content = this.template({

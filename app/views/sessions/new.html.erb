@@ -1,33 +1,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |err| %>
-    <p>Error:</p>
-    <%= err %>
-  <% end %>
-<% end %><br><br>
-
 <div class='signin-page'></div>
 
-<center>
-  <div class="entry-area">
-    <img class='logo-home' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/logo_asco_white_no_bg.png'><br><br><br>
-    <form action="<%= session_url %>" method="post">
-      <%= auth_token_input %>
-      <input type="text" name="user[email]" placeholder="Email" class="ffield" tabindex="1">
-      <br>
-      <br>
 
-      <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="2">
-      <br>
-      <br>
+<div class="entry-area">
+  <img class='logo-home' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/logo_asco_white_no_bg.png'><br>
 
-      <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
-    </form>
-      <button class="btn guest-login grey">Guest Login</button><br>
-      <%= link_to "Register", new_user_url, class: "btn grey" %>
+  <div class="signin-errors">
+    <left>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |err| %>
+        <%= err %>
+      <% end %>
+    <% end %><br><br>
+    </left>
   </div>
-</center>
+
+  <form action="<%= session_url %>" method="post">
+    <%= auth_token_input %>
+    <input type="text" name="user[email]" placeholder="Email" class="ffield" tabindex="1">
+    <br>
+    <br>
+
+    <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="2">
+    <br>
+    <br>
+
+    <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
+  </form>
+  <button class="btn guest-login grey">Guest Login</button><br>
+  <%= link_to "Register", new_user_url, class: "btn grey" %>
+</div>
 
 <script>
   $('.btn.guest-login.grey').click(function(){

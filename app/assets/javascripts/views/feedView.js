@@ -1,6 +1,5 @@
 Asco.Views.FeedView = Backbone.CompositeView.extend({
   template: JST['images/feed'],
-  className: 'feed-images',
   wide: window.innerWidth,
   tall: window.innerHeight,
 
@@ -9,17 +8,15 @@ Asco.Views.FeedView = Backbone.CompositeView.extend({
   },
 
   renderGrid: function () {
-    $('.feed-images').gridalicious({
+    $('.grida-images').gridalicious({
       width: 300,
-      selector: '.image-item-a'
-    });
-    $('.feed-images').gridalicious({
-      gutter: 20,
+      gutter: 40,
+      selector: '.item',
       animate: true,
       animationOptions: {
-        queue: true,
-        speed: 400,
-        duration: 800,
+        queue: false,
+        speed: 200,
+        duration: 1200,
         effect: 'fadeInOnAppear'
       }
     });
