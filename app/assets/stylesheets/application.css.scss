@@ -440,6 +440,14 @@ body {
 
 .item {
   margin-top: 1.2em;
+  img {
+    // -webkit-filter: blur(3px);
+    transition: -webkit-filter .15s ease;
+    &:hover {
+      // -webkit-filter: none;
+      -webkit-filter: opacity(0.75);
+    }
+  }
 }
 
 .grida-images {

@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({email: 'example@demo.com', password: 'password', avatar: 'http://i.vsco.co/54187aa77367084a3a8b4c1f?w=300&c=1&d=1'})
-User.create({username: 'hunter', email: 'hunter@gmail.com', password: 'hunter2', avatar: 'http://i.vsco.co/5529d729e355150e638b4570?w=300&c=1&d=1'})
-User.create({email: 'marco@polo.com', password: 'password', avatar: 'http://i.vsco.co/545859047267083f788b4584?w=300&c=1&d=1'})
-User.create({username: 'bradley', email: 'bradleybradley@hotmail.com', password: 'bradley'})
+User.create({email: 'example@demo.com', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg'})
+User.create({username: 'hunter', email: 'hunter@gmail.com', password: 'hunter2', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg'})
+User.create({email: 'marco@polo.com', password: 'password', avatar: 'http://image.vsco.co/1/52da8b5a63812289753/545859047267083f788b4584/210x210/304ebc82574dbd7af585bcfb7dad551a/vsco_110414.jpg'})
+User.create({username: 'bradley', email: 'bradleybradley@hotmail.com', password: 'bradley', avatar: 'http://image.vsco.co/1/5217ab36ad5bf70382/545ee02c736708b0258b45e5/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_110814.jpg'})
 
 Following.create({issuer_id: 1, recipient_id: 2})
 Following.create({issuer_id: 1, recipient_id: 3})
