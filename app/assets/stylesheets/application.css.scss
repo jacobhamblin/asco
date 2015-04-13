@@ -285,7 +285,7 @@ body {
   height: 64px;
 }
 
-.prev-image img {
+.prev-image {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -296,12 +296,11 @@ body {
 
 .prev-image {
   top: 50%;
-  left: 2%;
 }
 
 .next-image {
   top: 50%;
-  right: 2%;
+  right: 0%;
 }
 
 .images {
@@ -319,6 +318,19 @@ body {
 .next-image {
   float: right;
   position: fixed;
+}
+
+.arrows {
+  width: 65px;
+  height: 65px;
+  background-image: url("https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg");
+  background-position: center center;
+  background-size: 18px auto;
+  -webkit-filter: opacity(0.5);
+  background-repeat: no-repeat;
+  &:hover {
+    -webkit-filter: opacity(1.0);
+  }
 }
 
 .image {

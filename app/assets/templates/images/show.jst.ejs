@@ -8,10 +8,10 @@
 
 <div class="image-show clearfix">
   <% if (prevImage) { %>
-    <a href="#images/<%= prevImage.id %>" class="prev-image arrows"><img src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg"></a>
+    <a href="#images/<%= prevImage.id %>" class="prev-image arrows"></a>
   <% } %>
   <img src="<%= image.escape('url')%>" class="image">
   <% if (nextImage) { %>
-    <a href="#images/<%= nextImage.id %>" class="next-image arrows"><img src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg"></a>
+    <a href="#images/<%= nextImage.id %>" class="next-image arrows"></a>
   <% } %>
 </div>
