@@ -159,6 +159,10 @@ body {
   background-color: transparent;
 }
 
+.navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+  margin-left: 0px;
+}
+
 .navbar-right .dropdown-menu {
   left: 0;
 }
@@ -170,6 +174,18 @@ body {
 
 .dropdown-item {
   background-color: #f9f9f9;
+}
+
+.navbar-collapse {
+  padding-left: 0px;
+}
+
+.collapse.in > .navbar-right > li {
+  background-color: #f9f9f9;
+}
+
+.navbar-collapse.in {
+  overflow-y: inherit;
 }
 
 .dropdown-item > a:hover {
@@ -451,4 +467,9 @@ body {
   font-weight: normal;
   text-transform: uppercase;
   margin-bottom: 120px;
+  &:hover {
+    text-decoration: none;
+    color: #000000;
+    font-weight: normal;
+  }
 }
