@@ -521,3 +521,11 @@ body {
   opacity: 0;
   transition: opacity 200ms ease;
 }
+
+.image-tag {
+  color: #a6a547;
+  &:hover {
+    color: #a6a547;
+    text-decoration: none;
+  }
+}

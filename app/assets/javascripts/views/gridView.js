@@ -20,7 +20,7 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
     });
     $('.image-item').css('display', 'inline-block');
     $(function () {
-      $('.image-owner').css('opacity', 1)
+      $('.image-owner').css('opacity', 1);
     });
   },
 
