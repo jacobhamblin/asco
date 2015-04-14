@@ -19,6 +19,9 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
       }
     });
     $('.image-item').css('display', 'inline-block');
+    $(function () {
+      $('.image-owner').css('opacity', 1)
+    });
   },
 
   render: function () {
@@ -30,7 +33,4 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
     return this;
   },
 
-  showImage: function () {
-
-  }
 });

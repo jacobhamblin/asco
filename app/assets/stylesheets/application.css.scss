@@ -516,3 +516,8 @@ body {
   -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
   box-shadow:inset 0px 0px 0px 10px #f9f9f9;
 }
+
+.image-owner {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}

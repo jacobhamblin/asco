@@ -32,12 +32,11 @@
   <%= link_to "Register", new_user_url, class: "btn grey" %>
 </div>
 
-<% emails = %W(kyarypamyu@pamyu.jp hunter@gmail.com marco@polo.com eun@kim.io) %>
-<% value = emails.sample %>
+<% emails = %w(kyarypamyu@pamyu.jp hunter@gmail.com marco@polo.com eun@kim.io) %>
 
 <script>
-  $('.btn.guest-login.grey').click(function(){
-    $("input[name='user[email]']").val(<%= value %>);
+  $('.btn.guest-login.grey').click(function() {
+    $("input[name='user[email]']").val('<%= emails.sample %>');
     $("input[name='user[password]']").val('password');
   })
 </script>

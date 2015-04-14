@@ -21,6 +21,9 @@ Asco.Views.FeedView = Backbone.CompositeView.extend({
       }
     });
     $('.image-item').css('display', 'inline-block');
+    $(function () {
+      $('.image-owner').css('opacity', 1)
+    });
   },
 
   render: function () {
