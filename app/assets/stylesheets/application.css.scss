@@ -348,7 +348,9 @@ body {
 
 .image-show {
   position: relative;
-  display: block;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .grid-icon {
@@ -479,7 +481,7 @@ body {
 }
 
 .image-show-title {
-  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, seif;
+  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
   font-size: 0.8125rem;
   color: #000000;
   letter-spacing: 0.2rem;
@@ -492,4 +494,13 @@ body {
     color: #000000;
     font-weight: normal;
   }
+}
+
+.image-description {
+  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: .5px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 6em 0;
 }

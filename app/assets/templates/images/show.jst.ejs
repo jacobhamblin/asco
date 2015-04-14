@@ -14,4 +14,7 @@
   <% if (nextImage) { %>
     <a href="#images/<%= nextImage.id %>" class="next-image arrows"></a>
   <% } %>
+  <div class="image-description">
+    <%= image.escape('description') %>
+  </div>
 </div>
