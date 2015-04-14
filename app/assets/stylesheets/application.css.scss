@@ -505,3 +505,14 @@ body {
   line-height: 1.4;
   padding: 6em 0;
 }
+
+.image-tags {
+  color: #a6a547;
+}
+
+.image-item {
+  display: none;
+  -webkit-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+  -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+  box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+}

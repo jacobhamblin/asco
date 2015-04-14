@@ -6,10 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!({email: 'example@demo.com', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg'})
-User.create!({username: 'hunter', email: 'hunter@gmail.com', password: 'hunter2', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg'})
+words = %W(contemporary fashionable popular stylish swank fly in in vogue latest modish now kawai up-to-the-minute voguish with-it à-la-mode A-OK adequate admissible all right average big common cool copacetic decent delightful fair hip hunky-dory kosher large okay passable peachy-keen pleasant pleasing respectable right-on standard sufficient swell tolerable trendy unexceptional unobjectionable welcome)
+
+User.create!({email: 'kyarypamyu@pamyu.jp', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg'})
+User.create!({username: 'hunter', email: 'hunter@gmail.com', password: 'password', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg'})
 User.create!({email: 'marco@polo.com', password: 'password', avatar: 'http://image.vsco.co/1/52da8b5a63812289753/545859047267083f788b4584/210x210/304ebc82574dbd7af585bcfb7dad551a/vsco_110414.jpg'})
-User.create!({username: 'bradley', email: 'bradleybradley@hotmail.com', password: 'bradley', avatar: 'http://image.vsco.co/1/5217ab36ad5bf70382/545ee02c736708b0258b45e5/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_110814.jpg'})
+User.create!({username: 'eun kim', email: 'eun@kim.io', password: 'password', avatar: 'http://image.vsco.co/1/5217ab36ad5bf70382/545ee02c736708b0258b45e5/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_110814.jpg'})
 
 Following.create!({issuer_id: 1, recipient_id: 2})
 Following.create!({issuer_id: 1, recipient_id: 3})
@@ -19,6 +21,16 @@ Following.create!({issuer_id: 3, recipient_id: 4})
 Following.create!({issuer_id: 3, recipient_id: 1})
 Following.create!({issuer_id: 4, recipient_id: 1})
 Following.create!({issuer_id: 4, recipient_id: 2})
+
+words.length.times { |n| Tag.create!({title: words[n] })}
+
+3.times do
+  32.times do |n|
+    if ((n + rand(words.length)) % 2 == 0 )
+      Tagging.create!({image_id: n, tag_id: rand(words.length + 1) })
+    end
+  end
+end
 
 Image.create!({owner_id: 1, url: 'http://i.vsco.co/550c6b9f035615340c8b456c?width=800&dpi=1&sw=1312', curated: true, description: 'Lorem ipsum dolor sit amet, unum clita usu at, ea minim convenire sed.'})
 Image.create!({owner_id: 1, url: 'http://i.vsco.co/550c76910b5615cb568b456c?width=730&dpi=1&sw=1327', curated: false, description: 'Homero persius diceret eum no, homero pertinax usu ne, an graece petentium pro.'})

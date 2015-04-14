@@ -8,9 +8,11 @@
 </div>
 
 <div class="grida-images">
+  <% if (images.length > 0) { %>
     <% images.each(function (image) { %>
-    <div class="item">
-      <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
-    </div>
-  <% }); %>
+      <div class="item">
+        <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
+      </div>
+    <% }); %>
+  <% } %>
 </div>

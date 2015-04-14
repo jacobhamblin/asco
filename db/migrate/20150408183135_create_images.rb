@@ -5,7 +5,6 @@ class CreateImages < ActiveRecord::Migration
       t.boolean :curated, default: false
       t.string :url, null: false
       t.text :description
-      t.string :tag
 
       t.timestamps null: false
     end

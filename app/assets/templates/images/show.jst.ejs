@@ -16,5 +16,10 @@
   <% } %>
   <div class="image-description">
     <%= image.escape('description') %>
+    <div class="image-tags">
+      <% image.tags().each(function(tag) { %>
+        #<%= tag.escape('title') %>
+      <% }) %>
+    </div>
   </div>
 </div>

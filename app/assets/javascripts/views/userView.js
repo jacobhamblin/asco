@@ -13,11 +13,12 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
       animate: true,
       animationOptions: {
         queue: false,
-        speed: 200,
-        duration: 1200,
+        speed: 400,
+        duration: 400,
         effect: 'fadeInOnAppear'
       }
     });
+    $('.image-item').css('display', 'inline-block');
   },
 
   render: function () {
