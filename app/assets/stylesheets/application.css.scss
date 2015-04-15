@@ -204,6 +204,27 @@ body {
   }
 }
 
+.navbar-search-a {
+  width: 60px;
+  height: 60px;
+  &:hover {
+    img {
+      opacity: 1.0;
+    }
+  }
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+    width: 14px;
+    height: auto;
+    opacity: 0.5;
+
+  }
+}
+
 .navbar-nav > li > a {
   padding-top: 0px;
   padding-bottom: 0px;

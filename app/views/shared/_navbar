@@ -32,7 +32,7 @@
         <% else %>
           <li><%= link_to "Sign In", new_session_url %></li>
         <% end %>
-        <li class='navbar-search-li'><a href="#search" class="navbar-search-a"><%= image_tag('search-navbar.png', size:'60x60', class: 'navbar-search', alt: 'search') %></a></li>
+        <li class='navbar-search-li'><a href="#search" class="navbar-search-a"><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/search_icon.png'></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
