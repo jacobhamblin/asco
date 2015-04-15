@@ -607,3 +607,13 @@ body {
   margin-right: auto;
   width: inherit;
 }
+
+.nav-follow-icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.2;
+  margin-left: 30px;
+  &:hover {
+    opacity: 0.4;
+  }
+}

@@ -5,6 +5,14 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
   },
 
+  events: {
+    'click .nav-follow-icon': 'toggleFollow'
+  },
+
+  toggleFollow: function () {
+
+  },
+
   renderGrid: function () {
     $('.grida-images').gridalicious({
       width: 300,
