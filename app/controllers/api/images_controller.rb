@@ -4,7 +4,7 @@ class Api::ImagesController < ApplicationController
   def index
     case params[:source]
     when "feed"
-      @images = current_user.followed_images
+      @images = current_user.followed_images.order(:created_at)
     when "grid"
       @images = Image.all.where(curated: true)
     when /^(\d+)$/
@@ -16,7 +16,7 @@ class Api::ImagesController < ApplicationController
     end
 
     if params[:query]
-      @images = Image.joins(:tags).where('tags.title ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.username ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.email ~ ?', params[:query].downcase)
+      @images = (Image.joins(:tags).where('tags.title ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.username ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.email ~ ?', params[:query].downcase)).uniq
     end
 
     render :index
