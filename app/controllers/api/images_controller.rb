@@ -14,6 +14,11 @@ class Api::ImagesController < ApplicationController
     else
       @images = Image.all
     end
+
+    if params[:query]
+      @images = Image.joins(:tags).where('tags.title ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.username ~ ?', params[:query].downcase) + Image.joins(:owner).where('users.email ~ ?', params[:query].downcase)
+    end
+
     render :index
   end
 

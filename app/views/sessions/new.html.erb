@@ -7,13 +7,11 @@
   <img class='logo-home' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/logo_asco_white_no_bg.png'><br>
 
   <div class="signin-errors">
-    <left>
     <% if flash[:errors] %>
       <% flash[:errors].each do |err| %>
         <%= err %>
       <% end %>
     <% end %><br><br>
-    </left>
   </div>
 
   <form action="<%= session_url %>" method="post">
@@ -29,7 +27,8 @@
     <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
   </form>
   <button class="btn guest-login grey">Guest Login</button><br>
-  <%= link_to "Register", new_user_url, class: "btn grey" %>
+  <%= link_to "Register", new_user_url, class: "btn grey" %><br>
+  <a class="gh-link" href="http://www.github.com/jacobhamblin/asco">See on Github</a>
 </div>
 
 <% emails = %w(kyarypamyu@pamyu.jp hunter@gmail.com marco@polo.com eun@kim.io) %>

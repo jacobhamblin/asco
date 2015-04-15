@@ -25,7 +25,7 @@ Following.create!({issuer_id: 4, recipient_id: 2})
 words.length.times { |n| Tag.create!({title: words[n] })}
 
 3.times do
-  32.times do |n|
+  40.times do |n|
     if ((n + rand(words.length)) % 2 == 0 )
       Tagging.create!({image_id: n, tag_id: rand(words.length + 1) })
     end
@@ -65,3 +65,14 @@ Image.create!({owner_id: 4, url: 'http://i.vsco.co/550c5d6a0b5615e4678b456b?widt
 Image.create!({owner_id: 4, url: 'http://i.vsco.co/550bc2cf29561512778b4583?width=800&dpi=1&sw=807', curated: true, description: 'Usu et ancillae intellegam, ex ferri bonorum mandamus mel, amet velit integre no mea.'})
 Image.create!({owner_id: 4, url: 'http://i.vsco.co/550c3b77045615471c8b4567?width=800&dpi=1&sw=807', curated: false, description: 'Homero persius diceret eum no, homero pertinax usu ne, an graece petentium pro.'})
 Image.create!({owner_id: 4, url: 'http://i.vsco.co/550c872e095615f50a8b4569?width=697&dpi=1&sw=807', curated: true})
+Image.create!({owner_id: 1, url: 'http://i.vsco.co/52d719e471670890390000ec?width=800&dpi=1&sw=1856', curated: true})
+Image.create!({owner_id: 2, url: 'http://i.vsco.co/5338221e716708eb4b000401?width=749&dpi=1&sw=1871', curated: false})
+Image.create!({owner_id: 3, url: 'http://i.vsco.co/5338197f7267084f610001b4?width=800&dpi=1&sw=1856', curated: false})
+Image.create!({owner_id: 4, url: 'http://i.vsco.co/54214469756708543a8b49a2?width=800&dpi=1&sw=1856', curated: false})
+Image.create!({owner_id: 1, url: 'http://i.vsco.co/52fb0ef7726708ad7300018f?width=749&dpi=1&sw=1856', curated: true})
+Image.create!({owner_id: 2, url: 'http://i.vsco.co/538968b073670842138b49dc?width=800&dpi=1&sw=1871', curated: false})
+Image.create!({owner_id: 3, url: 'http://i.vsco.co/528cc5855a6808bc5600008f?width=800&dpi=1&sw=1871', curated: false})
+Image.create!({owner_id: 4, url: 'http://i.vsco.co/552d8873e755154c3e8b456b?width=800&dpi=1&sw=1871', curated: true})
+Image.create!({owner_id: 1, url: 'http://i.vsco.co/552c2dee245615c67f8b4587?width=749&dpi=1&sw=1871', curated: false})
+Image.create!({owner_id: 2, url: 'http://i.vsco.co/552cb191255615b9368b457a?width=800&dpi=1&sw=1871', curated: false})
+Image.create!({owner_id: 3, url: 'http://i.vsco.co/55285bf0045615cd688b4571?width=800&dpi=1&sw=1856', curated: true})

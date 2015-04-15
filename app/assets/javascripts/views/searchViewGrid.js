@@ -1,8 +1,7 @@
-Asco.Views.FeedView = Backbone.CompositeView.extend({
-  template: JST['images/feed'],
-  wide: window.innerWidth,
-  tall: window.innerHeight,
-
+Asco.Views.SearchViewGrid = Backbone.CompositeView.extend({
+  template: JST['images/searchGrid'],
+  className: 'grida-images',
+  
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
   },
@@ -28,10 +27,10 @@ Asco.Views.FeedView = Backbone.CompositeView.extend({
 
   render: function () {
     var content = this.template({
-      images: this.collection,
+      images: this.collection
     });
     this.$el.html(content);
     this.renderGrid();
     return this;
   }
-});
+})

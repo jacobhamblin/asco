@@ -1,7 +1,6 @@
 Asco.Routers.Router = Backbone.Router.extend ({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.images = new Asco.Collections.Images();
     this.image = new Asco.Models.Image();
   },
 
@@ -10,15 +9,12 @@ Asco.Routers.Router = Backbone.Router.extend ({
     'feed': 'feed',
     'grid': 'grid',
     'users/:id': 'userGrid',
-    'images/:id': 'show'
-    // 'search': 'search'
-  },
-
-  index: function () {
-
+    'images/:id': 'show',
+    'search': 'search'
   },
 
   feed: function () {
+    this.images = new Asco.Collections.Images();
     this.images.fetch({ data: { source: "feed" } });
 
     var feedView = new Asco.Views.FeedView({
@@ -29,6 +25,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
   },
 
   grid: function () {
+    this.images = new Asco.Collections.Images();
     this.images.fetch({ data: { source: "grid" } });
 
     var gridView = new Asco.Views.GridView({
@@ -39,6 +36,7 @@ Asco.Routers.Router = Backbone.Router.extend ({
   },
 
   userGrid: function (id) {
+    this.images = new Asco.Collections.Images();
     this.images.fetch({ data: { source: id } });
 
     var userView = new Asco.Views.UserView({
@@ -58,6 +56,15 @@ Asco.Routers.Router = Backbone.Router.extend ({
     });
 
     this._swapView(showView);
+  },
+
+  search: function () {
+    this.images = new Asco.Collections.Images();
+    var searchView = new Asco.Views.SearchView({
+      collection: this.images
+    });
+
+    this._swapView(searchView);
   },
 
   _swapView: function (view) {

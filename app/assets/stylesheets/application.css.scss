@@ -65,6 +65,11 @@
    src: url('https://s3-us-west-1.amazonaws.com/asco-jkh/fonts/proxima+nova/ProximaNova-Semibold.otf')
  }
 
+ @font-face {
+   font-family: 'Proxima Nova Rg';
+   src: url('https://s3-us-west-1.amazonaws.com/asco-jkh/fonts/proxima+nova/ProximaNova-Reg-webfont.woff')
+ }
+
  @import 'bootstrap';
 
 html {
@@ -377,7 +382,9 @@ body {
 }
 
 .signin-errors {
-  color: #bbbbbb;
+  font-family: 'Proxima Nova Rg';
+  color: white;
+  font-weight: normal;
   width: 255px;
   margin-left: auto;
   margin-right: auto;
@@ -385,7 +392,9 @@ body {
 }
 
 .signup-errors {
-  color: #bbbbbb;
+  font-family: 'Proxima Nova Rg';
+  color: white;
+  font-weight: normal;
   width: 255px;
   margin-left: auto;
   margin-right: auto;
@@ -528,4 +537,52 @@ body {
     color: #a6a547;
     text-decoration: none;
   }
+}
+
+.gh-link {
+  font-family: 'Proxima Nova Rg';
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: white;
+  font-weight: normal;
+  text-decoration: underline;
+  &:hover {
+    color: white;
+  }
+  &:visited {
+    color: white;
+  }
+}
+
+.search-field {
+  font-size: 16px;
+  width: 360px;
+  padding: 1em 1em;
+  background: #f9f9f9;
+  border: none;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-options {
+  padding: 15px 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 10.4px;
+  letter-spacing: .1em;
+}
+
+.search-header {
+  margin-top: 38px;
+  margin-left: auto;
+  margin-right: auto;
+  width: inherit;
 }

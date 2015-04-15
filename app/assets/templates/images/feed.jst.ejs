@@ -1,4 +1,3 @@
-
 <div class="grida-images">
   <div class="feed-header">
     <div class="white-pixel"
@@ -11,7 +10,7 @@
     </div>
   </div>
 
-  <% if (images.length > 0) { %>
+<% if (images.length > 0) { %>
     <% images.each(function (image) { %>
       <div class="item">
         <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
