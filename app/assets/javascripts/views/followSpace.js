@@ -2,6 +2,10 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
   template: JST['images/followSpace'],
   classname: 'follow-button-space',
 
+  inititalize: function () {
+    this.listenTo(this.model, "change", this.render);
+  },
+
   events: {
     'click .following-button': 'unfollow',
     'click .follow-button': 'follow'
@@ -18,9 +22,8 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
       dataType: 'json',
       method: 'DELETE',
       success: function () {
-        $('.follow-btns').removeClass('inter-follow-state');
-        $('.follow-button-space').html('');
-        $('.follow-button-space').html(this.template({user: this.model}));
+        this.model.set('follow', '');
+        this.render();
       }.bind(this)
     });
   },
@@ -36,9 +39,8 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
       },
       method: 'POST',
       success: function () {
-        $('.follow-btns').removeClass('inter-follow-state');
-        $('.follow-button-space').html('');
-        $('.follow-button-space').html(this.template({user: this.model}));
+        this.model.set('follow', "true");
+        this.render();
       }.bind(this)
     });
   },

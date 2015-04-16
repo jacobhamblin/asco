@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :session_token, index: true
       t.string :avatar, default: 'https://s3-us-west-1.amazonaws.com/asco-jkh/layout/defavie.jpg'
+      t.string :description
 
       t.timestamps null: false
     end

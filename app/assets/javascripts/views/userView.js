@@ -3,7 +3,16 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "change", this.changeButton)
+  },
+
+  changeButton: function () {
+    debugger
+    if (this.model.get('follow')) {
+      $('.nav-follow-toggle').html("<img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>");
+    } else if (this.model.get('follow') == "undefined" || this.model.get('follow') == '') {
+      $('.nav-follow-toggle').html("<img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>");
+    }
   },
 
   events: {

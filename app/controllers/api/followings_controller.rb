@@ -11,7 +11,6 @@ class Api::FollowingsController < ApplicationController
 
   def destroy
     @following = current_user.followings.where('issuer_id = ?', current_user.id).where('recipient_id = ?', params[:recipient_id])
-    id =
 
     if @following
       @following.destroy(@following.first)
