@@ -2,12 +2,13 @@
 #
 # Table name: images
 #
-#  id         :integer          not null, primary key
-#  owner_id   :integer          not null
-#  curated    :boolean          default(FALSE)
-#  url        :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  owner_id    :integer          not null
+#  curated     :boolean          default(FALSE)
+#  url         :string           not null
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class Image < ActiveRecord::Base

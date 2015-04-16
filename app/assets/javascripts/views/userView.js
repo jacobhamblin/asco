@@ -3,6 +3,7 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.model, "sync", this.render);
   },
 
   events: {
@@ -10,7 +11,12 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   },
 
   toggleFollow: function () {
-
+    if ($('.follow-space').html()) {
+      this.$('.follow-space').html('');
+    } else {
+      var followSpace = new Asco.Views.FollowSpace({ model: this.model });
+      this.$('.follow-space').html(followSpace.render().$el);
+    }
   },
 
   renderGrid: function () {
@@ -31,7 +37,8 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
 
   render: function () {
     var content = this.template({
-      images: this.collection
+      images: this.collection,
+      user: this.model
     });
     this.$el.html(content);
     this.renderGrid();

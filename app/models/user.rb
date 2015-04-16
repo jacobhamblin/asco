@@ -7,6 +7,7 @@
 #  username        :string
 #  password_digest :string           not null
 #  session_token   :string
+#  avatar          :string           default("https://s3-us-west-1.amazonaws.com/asco-jkh/layout/defavie.jpg")
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -14,12 +15,11 @@
 class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, :session_token, uniqueness:   true
+  validates :email, :session_token, uniqueness: true
 
   attr_reader :password
 
   has_many :images, foreign_key: :owner_id
-  has_many :followed_users
   has_many :followings, class_name: :Following, foreign_key: :recipient_id
   has_many :following_users, through: :followings, source: :issuer
   has_many :follows, class_name: :Following, foreign_key: :issuer_id
@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def follows?(user)
+    self.followed_users.include?(user)
   end
 
   private

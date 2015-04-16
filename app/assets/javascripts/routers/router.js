@@ -38,15 +38,19 @@ Asco.Routers.Router = Backbone.Router.extend ({
   userGrid: function (id) {
     this.images = new Asco.Collections.Images();
     this.images.fetch({ data: { source: id } });
+    var user = new Asco.Models.User({id: id});
+    user.fetch();
 
     var userView = new Asco.Views.UserView({
-      collection: this.images
+      collection: this.images,
+      model: user
     });
 
     this._swapView(userView);
   },
 
   show: function (id) {
+    this.images = new Asco.Collections.Images();
     var image = this.images.getOrFetch(id);
     this.images.fetch({ data: { source: "img" + id } });
 

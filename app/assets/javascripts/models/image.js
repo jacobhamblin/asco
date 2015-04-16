@@ -3,18 +3,14 @@ Asco.Models.Image = Backbone.Model.extend ({
 
   owner: function () {
     if (!this._owner) {
-      if (!this._owner) {
-        this._owner = new Asco.Models.Owner();
-      }
+      this._owner = new Asco.Models.User();
     }
     return this._owner;
   },
 
   tags: function () {
     if (!this._tags) {
-      if (!this._tags) {
-        this._tags = new Asco.Collections.Tags();
-      }
+      this._tags = new Asco.Collections.Tags();
     }
     return this._tags;
   },

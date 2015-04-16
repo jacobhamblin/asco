@@ -33,7 +33,7 @@ Following.create!({issuer_id: 5, recipient_id: 4})
 words.length.times { |n| Tag.create!({title: words[n] })}
 
 3.times do
-  57.times do |n|
+  58.times do |n|
     if ((n + rand(words.length)) % 2 == 0 )
       Tagging.create!({image_id: n, tag_id: rand(words.length + 1) })
     end
@@ -50,7 +50,7 @@ Image.create!({owner_id: 3, url: 'http://i.vsco.co/550c69e0e95515f00c8b4568?widt
 Image.create!({owner_id: 3, url: 'http://i.vsco.co/550c6a19045615cd5e8b4579?width=800&dpi=1&sw=1327', curated: true, description: 'Usu et ancillae intellegam, ex ferri bonorum mandamus mel, amet velit integre no mea.'})
 Image.create!({owner_id: 5, url: 'http://i.vsco.co/550ff221245615e4618b4579?width=800&dpi=1&sw=1840', curated: false})
 Image.create!({owner_id: 3, url: 'http://i.vsco.co/550c698803561549778b4575?width=800&dpi=1&sw=1327', curated: false})
-Image.create!({owner_id: 3, url: 'http://i.vsco.co/550b51962a56159e438b458d?width=579&dpi=1&sw=1327', curated: true, description: 'Lorem ipsum dolor sit amet, unum clita usu at, ea minim convenire sed.'})
+Image.create!({owner_id: 3, url: 'http://i.vsco.co/551523b0045615d03c8b4570?width=800&dpi=1&sw=1871', curated: true, description: 'Lorem ipsum dolor sit amet, unum clita usu at, ea minim convenire sed.'})
 Image.create!({owner_id: 5, url: 'http://i.vsco.co/55109bb30c5615f6298b4577?width=800&dpi=1&sw=1855', curated: false, description: 'Homero persius diceret eum no, homero pertinax usu ne, an graece petentium pro.'})
 Image.create!({owner_id: 3, url: 'http://i.vsco.co/550b69b105561541428b4596?width=729&dpi=1&sw=1327', curated: false, description: 'Homero persius diceret eum no, homero pertinax usu ne, an graece petentium pro.'})
 Image.create!({owner_id: 1, url: 'http://image.vsco.co/1/55094b1004f072730330/5517ef662b5615a20a8b456e/800x800/vsco_032915.jpg', curated: false,  description: 'Usu et ancillae intellegam, ex ferri bonorum mandamus mel, amet velit integre no mea.'})
@@ -98,3 +98,4 @@ Image.create!({owner_id: 3, url: 'http://i.vsco.co/55285bf0045615cd688b4571?widt
 Image.create!({owner_id: 4, url:
 'http://i.vsco.co/551427e52d5615c53d8b4585?width=800&dpi=1&sw=1840', curated: false})
 Image.create!({owner_id: 5, url: 'http://i.vsco.co/55102bb4e3551577558b457f?width=800&dpi=1&sw=1855', curated: false, description: 'Lorem ipsum dolor sit amet, unum clita usu at, ea minim convenire sed.'})
+Image.create!({owner_id: 5, url: 'http://i.vsco.co/551523b0045615d03c8b4570?width=800&dpi=1&sw=1871', curated: true, description: 'Usu et ancillae intellegam, ex ferri bonorum mandamus mel, amet velit integre no mea.'})

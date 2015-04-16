@@ -1,7 +1,9 @@
 <div class='nav-usergrid'>
-  <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon'>
-
-  <div class='follow-space'></div>
+  <% if (user.get('follow')) { %>
+    <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>
+  <% } else { %>
+    <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>
+  <% } %>
 </div>
 
 <div class="header-usergrid">
@@ -10,6 +12,7 @@
     <img src="<%= images.first().owner().escape('avatar') %>" class="avatar-usergrid"><br>
     <span class="user-show-title"><%= images.first().owner().escape('username') ? images.first().owner().escape('username') :  images.first().owner().escape('email') %></span>
   <% } %>
+  <div class='follow-space'></div>
   </center>
 </div>
 

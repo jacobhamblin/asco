@@ -4,7 +4,10 @@
   <title>asco</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tag %>
+  <script charset="utf-8">
+    Asco.AUTH_TOKEN = "<%= form_authenticity_token %>";
+  </script>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>
 </head>
 <body>
