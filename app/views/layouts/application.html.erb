@@ -8,6 +8,12 @@
   <script charset="utf-8">
     Asco.AUTH_TOKEN = "<%= form_authenticity_token %>";
   </script>
+  <% if !!current_user %>
+    <script>
+      window.CURRENT_USER_ID = <%= current_user.id %>
+    </script>
+  <% end %>  
+
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>
 </head>
 <body>

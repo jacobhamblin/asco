@@ -7,9 +7,9 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   },
 
   changeButton: function () {
-    if (this.model.get('follow')) {
+    if (this.model.get('follow') == 'true') {
       $('.nav-follow-toggle').html("<img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>");
-    } else if (this.model.get('follow') == "undefined" || this.model.get('follow') == '') {
+    } else {
       $('.nav-follow-toggle').html("<img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>");
     }
   },
@@ -46,12 +46,15 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template({
-      images: this.collection,
-      user: this.model
-    });
-    this.$el.html(content);
-    this.renderGrid();
+    console.log(this.model.get('follow'))
+    if (this.collection.length > 0) {
+      var content = this.template({
+        images: this.collection,
+        user: this.model
+      });
+      this.$el.html(content);
+      this.renderGrid();
+    }
     return this;
   }
 });

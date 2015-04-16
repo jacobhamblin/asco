@@ -23,14 +23,11 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
       dataType: 'json',
       method: 'DELETE',
       success: function (response) {
-        if (response == "[Issuer can't be the same as issuer_id]") {
-
-        }
-        this.model.set('follow', '');
+        this.model.set('follow', 'false');
         this.render();
       }.bind(this),
       complete: function () {
-        $('.follow-btns').removeClass('inter-follow-state')
+        $('.follow-btns').removeClass('inter-follow-state');
       }
     });
   },
@@ -46,7 +43,7 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
       },
       method: 'POST',
       success: function () {
-        this.model.set('follow', "true");
+        this.model.set('follow', 'true');
         this.render();
       }.bind(this)
     });
