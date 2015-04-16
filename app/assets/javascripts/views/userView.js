@@ -3,11 +3,10 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.model, "change", this.changeButton)
+    this.listenTo(this.model, "change", this.changeButton);
   },
 
   changeButton: function () {
-    debugger
     if (this.model.get('follow')) {
       $('.nav-follow-toggle').html("<img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>");
     } else if (this.model.get('follow') == "undefined" || this.model.get('follow') == '') {
@@ -20,11 +19,13 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   },
 
   toggleFollow: function () {
-    if ($('.follow-space').html()) {
-      this.$('.follow-space').html('');
-    } else {
-      var followSpace = new Asco.Views.FollowSpace({ model: this.model });
-      this.$('.follow-space').html(followSpace.render().$el);
+    if (this.model.get('unfollowable') != 'true') {
+      if ($('.follow-space').html()) {
+        this.$('.follow-space').html('');
+      } else {
+        var followSpace = new Asco.Views.FollowSpace({ model: this.model });
+        this.$('.follow-space').html(followSpace.render().$el);
+      }
     }
   },
 

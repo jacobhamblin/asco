@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150414070220) do
     t.string   "password_digest",                                                                            null: false
     t.string   "session_token"
     t.string   "avatar",          default: "https://s3-us-west-1.amazonaws.com/asco-jkh/layout/defavie.jpg"
+    t.string   "description"
     t.datetime "created_at",                                                                                 null: false
     t.datetime "updated_at",                                                                                 null: false
   end

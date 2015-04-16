@@ -1,11 +1,14 @@
 <div class='nav-usergrid'>
-  <div class='nav-follow-toggle'>
-    <% if (user.get('follow')) { %>
-      <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>
-    <% } else { %>
-      <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>
-    <% } %>
-  </div>
+  <% if (!user.get('unfollowable') && (user.get('follow'))) { %>
+    <div class='nav-follow-toggle'>
+      <% if (user.get('follow') == 'true') { %>
+        <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>
+      <% } else { %>
+        <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>
+      <% } %>
+    </div>
+  <% } %>
+
 </div>
 
 <div class="header-usergrid">

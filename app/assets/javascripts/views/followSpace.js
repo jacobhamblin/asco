@@ -17,14 +17,21 @@ Asco.Views.FollowSpace = Backbone.CompositeView.extend ({
     $.ajax({
       url: 'api/follow/' + this.model.escape('id') + '/delete',
       data: {
-        authenticity_token: Asco.AUTH_TOKEN
+        authenticity_token: Asco.AUTH_TOKEN,
+        recipient_id: this.model.escape('id')
       },
       dataType: 'json',
       method: 'DELETE',
-      success: function () {
+      success: function (response) {
+        if (response == "[Issuer can't be the same as issuer_id]") {
+
+        }
         this.model.set('follow', '');
         this.render();
-      }.bind(this)
+      }.bind(this),
+      complete: function () {
+        $('.follow-btns').removeClass('inter-follow-state')
+      }
     });
   },
 

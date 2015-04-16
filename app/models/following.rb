@@ -12,6 +12,7 @@
 class Following < ActiveRecord::Base
   validates :recipient_id, :issuer_id, presence: true
   validates :issuer_id, uniqueness: { scope: :recipient_id }
+  validate :current_user_cannot_follow_self
 
   belongs_to :recipient, class_name: :User
   belongs_to :issuer, class_name: :User

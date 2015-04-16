@@ -10,10 +10,10 @@ class Api::FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = current_user.followings.where('issuer_id = ?', current_user.id).where('recipient_id = ?', params[:recipient_id])
+    @follow = current_user.follows.where('recipient_id = ?', params[:recipient_id])
 
-    if @following
-      @following.destroy(@following.first)
+    if @follow
+      @follow.destroy(@follow.first.id)
       render json: @following
     else
       render json: {}, status: :unprocessable_entity
