@@ -34,8 +34,23 @@
 <% emails = %w(kyarypamyu@pamyu.jp hunter@gmail.com marco@polo.com eun@kim.io dsmith@gmail.com) %>
 
 <script>
-  $('.btn.guest-login.grey').click(function() {
-    $("input[name='user[email]']").val('<%= emails.sample %>');
-    $("input[name='user[password]']").val('password');
-  })
-</script>
+   $('.btn.guest-login.grey').click(function(){
+     $("input[name='user[email]']").val('');
+     $("input[name='user[password]']").val('');
+     autoTyper('<%= emails.sample %>', $("input[name='user[email]']"), function(){
+       autoTyper('password', $("input[name='user[password]']"), function(){
+         $('.btn.enter').click();
+       });
+     });
+   });
+   var autoTyper = function(word, $el, callback){
+     var typer = setInterval(function(){
+       $el.val($el.val() + word.slice(0,1));
+       word = word.substr(1);
+       if(word.length === 0){
+         clearInterval(typer);
+         callback();
+       }
+     }, 50);
+   }
+ </script>

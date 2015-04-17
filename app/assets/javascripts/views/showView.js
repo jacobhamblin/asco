@@ -1,6 +1,5 @@
 Asco.Views.ShowView = Backbone.CompositeView.extend({
   template: JST['images/show'],
-  className: 'image-show',
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
