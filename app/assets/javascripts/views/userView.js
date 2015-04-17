@@ -24,13 +24,15 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     if (this.style === 'grid') {
       this.style = 'vert';
       $('.view-toggle').html("<a class='grid-view-a' href='javascript:void(0)'><div class='vert-box'></div></a>");
-      $('.grida-images').hide();
-      $('.vert-images').show();
+      $('.grida-images').fadeOut(100, function () {
+        $('.vert-images').fadeIn(100);
+      });
     } else if (this.style === 'vert') {
       this.style = 'grid';
       $('.view-toggle').html("<a class='grid-view-a' href='javascript:void(0)'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/grid_view_icon.svg' class='grid-view'></a>");
-      $('.vert-images').hide();
-      $('.grida-images').show();
+      $('.vert-images').fadeOut(100, function () {
+        $('.grida-images').fadeIn(100);
+      });
     }
   },
 
