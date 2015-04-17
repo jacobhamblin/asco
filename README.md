@@ -63,7 +63,7 @@ I plan to exert a lot of effort into making it look like the original. I hope to
 - [ ] asco, film, cam, keys navbar and mvc
 - [x] User avatars
 - [ ] Typeahead search bar
-- [ ] Animate guest log-in
+- [x] Animate guest log-in
 - [ ] Automated periodic seed process
 
 [phase-one]: ./docs/phases/phase1.md
