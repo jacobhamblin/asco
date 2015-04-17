@@ -50,3 +50,21 @@
     <% }); %>
   <% } %>
 </div>
+
+<div class="vert-images">
+  <% if (images.length > 0) { %>
+    <% images.each(function (image) { %>
+      <div class="item user-show">
+        <a class="image-item-a" href="#/images/<%= image.id %>"><img class="image-item" src="<%= image.escape('url') %>"></a>
+        <div class="image-description user-show">
+          <%= image.escape('description') %>
+          <% image.tags().each(function(tag) { %>
+            <a href="#" class="image-tag">
+              #<%= tag.escape('title') %>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    <% }); %>
+  <% } %>
+</div>
