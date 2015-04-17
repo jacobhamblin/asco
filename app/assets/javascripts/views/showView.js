@@ -8,7 +8,12 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
   },
 
   currentIndex: function () {
-    return this.collection.indexOf(this.model);
+    var view = this;
+    var index = -1;
+    this.collection.each(function (model, i) {
+      if (model.id === view.model.id) { index = i; }
+    });
+    return index;
   },
 
   nextIndex: function () {
@@ -43,13 +48,22 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
     return undefined;
   },
 
+  remove: function () {
+    $('.navbar.navbar-default').show();
+    Backbone.CompositeView.prototype.remove.call(this);
+  },
+
   render: function () {
-    var content = this.template({
-      images: this.collection,
-      image: this.model,
-      prevImage: this.prevImage(),
-      nextImage: this.nextImage()
-    });
+    $('.navbar.navbar-default').hide();
+    console.log(this.collection.length);
+    if (this.collection.length > 0) {
+      var content = this.template({
+        images: this.collection,
+        image: this.model,
+        prevImage: this.prevImage(),
+        nextImage: this.nextImage()
+      });
+    }
     this.$el.html(content);
     return this;
   }

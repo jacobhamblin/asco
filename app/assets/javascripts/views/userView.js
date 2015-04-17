@@ -15,7 +15,12 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .nav-follow-icon': 'toggleFollow'
+    'click .nav-follow-icon': 'toggleFollow',
+    'click .grid-view-a': 'toggleViewStyle'
+  },
+
+  toggleViewStyle: function () {
+
   },
 
   toggleFollow: function () {
@@ -45,8 +50,13 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     $('.image-item').css('display', 'inline-block');
   },
 
+  remove: function () {
+    $('.navbar.navbar-default').show();
+    Backbone.View.prototype.remove.call(this);
+  },
+
   render: function () {
-    console.log(this.model.get('follow'))
+    $('.navbar.navbar-default').hide();
     if (this.collection.length > 0) {
       var content = this.template({
         images: this.collection,

@@ -5,6 +5,18 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
   },
 
+  events: {
+    'click .grid-icon': 'toggleGridDescription'
+  },
+
+  toggleGridDescription: function () {
+    if ( $('.grid-description').html() === '') {
+      $('.grid-description').html("<p>A showcase of exceptional images from around the globe. Download VSCO Cam® to shoot, edit, and share photographs.</p><a href='http://vsco.co/vscocam'>vsco.co/vscocam</a>");
+    } else {
+      $('.grid-description').html('');
+    }
+  },
+
   renderGrid: function () {
     $('.grida-images').gridalicious({
       width: 300,

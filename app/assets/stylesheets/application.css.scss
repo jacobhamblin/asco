@@ -80,6 +80,7 @@ html {
 body {
    font-family: 'Proxima Nova', sans-serif;
    font-size: 14px;
+   -webkit-font-smoothing: antialiased;
  }
 
 .btn {
@@ -389,6 +390,7 @@ body {
   width: 64px;
   height: 64px;
   display: block;
+  cursor: pointer;
 }
 
 .header-usergrid {
@@ -467,6 +469,7 @@ body {
 }
 
 .image-owner {
+  font-family: "Proxima Nova Rg";
   margin-top: 2.25em;
   margin-left: auto;
   margin-right: auto;
@@ -613,7 +616,6 @@ body {
   width: 25px;
   height: 25px;
   opacity: 0.2;
-  margin-left: 30px;
   cursor: pointer;
   &:hover {
     opacity: 0.4;
@@ -669,4 +671,87 @@ body {
 
 .inter-follow-state {
   opacity: 0.5;
+}
+
+.nav-usergrid {
+  padding: 0 10px;
+  div {
+    display: inline-block;
+  }
+  a > img {
+    height: 25px;
+    width: 25px;
+    -webkit-filter: opacity(0.2);
+    margin: 19px 14px;
+    &:hover {
+      -webkit-filter: opacity(0.4);
+    }
+  }
+  a {
+    display: inline-block;
+    height: 57px;
+    width: 57px;
+  }
+}
+
+.nav-user {
+  div {
+    display: inline-block;
+  }
+  a > img {
+    height: 25px;
+    width: 25px;
+    -webkit-filter: opacity(0.2);
+    margin: 19px 14px;
+    &:hover {
+      -webkit-filter: opacity(0.4);
+    }
+  }
+  a {
+    display: inline-block;
+    height: 57px;
+    width: 57px;
+  }
+
+  .nav-follow-icon {
+    height: 25px;
+    width: 25px;
+    margin: 19px 14px;
+  }
+}
+
+.nav-usergrid {
+  display: table;
+}
+
+.grid-description {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.85em;
+  text-align: center;
+  max-width: 280px;
+  margin-top: 1.85em;
+  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 415px;
+  padding: 0 0.7em;
+  p {
+    color: #666;
+    margin-bottom: 1.85em;
+    }
+  a {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: #666;
+    text-decoration: underline;
+  }
+}
+
+.drop-menu-usergrid {
+  display: none;
 }
