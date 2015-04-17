@@ -13,6 +13,7 @@
       window.CURRENT_USER_ID = <%= current_user.id %>
       window.CURRENT_USER_USERNAME = "<%= current_user.username %>";
       window.CURRENT_USER_EMAIL = "<%= current_user.email %>";
+      window.CURRENT_USER_AVATAR = "<%= current_user.avatar %>";
     </script>
   <% end %>
 
@@ -22,9 +23,6 @@
 
   <%= render 'shared/navbar' %>
 
-  <!-- <%= request.original_url %> -->
-
-  <!-- !!(a =~ /\/images\/\d+/) -->
 <%= yield %>
 
 </body>

@@ -2,6 +2,36 @@
   <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_hamburger%402x.png'>
 </div>
 
+<div class='nav droppeddown'>
+  <div class='nav droppeddown close'>
+    <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_close_26x26_white.png'>
+  </div>
+
+  <a class='droppeddown user-avatar' href="#users/<%= window.CURRENT_USER_ID %>">
+    <img src="<%= window.CURRENT_USER_AVATAR %>">
+  </a>
+
+  <div class='droppeddown user-info'>
+
+    <h2>
+      <a href="#users/<%= window.CURRENT_USER_ID %>">
+        <% if (window.CURRENT_USER_USERNAME != '') { %>
+          <%= window.CURRENT_USER_USERNAME %>
+        <% } else {%>
+          <%= window.CURRENT_USER_EMAIL %>
+        <% } %>
+      </a>
+    </h2>
+
+  </div>
+
+  <ul class='droppeddown links'>
+    <li><a href='#feed'>Feed</a></li>
+    <li><a href='#grid'>Grid</a></li>
+    <li><a href='session/delete'>Sign Out</a><li>
+  </ul>
+</div>
+
 <div class='nav-usergrid'>
   <% if (images.first().owner().id != window.CURRENT_USER_ID) { %>
     <div class='nav-user'>

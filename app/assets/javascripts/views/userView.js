@@ -10,6 +10,9 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   events: {
     'click .nav-follow-icon': 'toggleFollow',
     'click .grid-view-a': 'toggleViewStyle',
+    'click .nav.dropdown': 'openDropdownMenu',
+    'click .nav.droppeddown.close': 'closeDropdownMenu',
+    'click :not(.nav.droppeddown)': 'closeDropdownMenu'
   },
 
   changeButton: function () {
@@ -33,6 +36,21 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
       $('.vert-images').fadeOut(100, function () {
         $('.grida-images').fadeIn(100);
       });
+    }
+  },
+
+  openDropdownMenu: function () {
+    var view = this;
+    setTimeout(function () {
+      view.openDropdown = true;
+    }, 0);
+    $('.nav.droppeddown').show();
+  },
+
+  closeDropdownMenu: function () {
+    if (this.openDropdown) {
+      $('.nav.droppeddown').hide();
+      this.openDropdown = false;
     }
   },
 

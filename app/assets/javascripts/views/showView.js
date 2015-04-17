@@ -7,6 +7,27 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync add", this.render);
   },
 
+  events: {
+    'click .nav.dropdown': 'openDropdownMenu',
+    'click .nav.droppeddown.close': 'closeDropdownMenu',
+    'click :not(.nav.droppeddown)': 'closeDropdownMenu'
+  },
+
+  openDropdownMenu: function () {
+    var view = this;
+    setTimeout(function () {
+      view.openDropdown = true;
+    }, 0);
+    $('.nav.droppeddown').show();
+  },
+
+  closeDropdownMenu: function () {
+    if (this.openDropdown) {
+      $('.nav.droppeddown').hide();
+      this.openDropdown = false;
+    }
+  },
+
   currentIndex: function () {
     var view = this;
     var index = -1;

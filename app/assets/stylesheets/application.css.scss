@@ -807,11 +807,143 @@ body {
   position: absolute;
   top: 0;
   img {
+    cursor: pointer;
     margin-left: auto;
     margin-right: 18px;
     margin-top: 22px;
     width: 24px;
     height: 16px;
     display: block;
+  }
+}
+
+.nav.droppeddown {
+  top: 0;
+  margin-top: 10px;
+  display: none;
+  width: 300px;
+  height: 475px;
+  right: 10px;
+  position: absolute;
+  z-index: 100;
+  background-color: #000;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.nav.droppeddown.open {
+  display: block;
+}
+
+.nav.droppeddown.close {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border-width: 0 0 10px 10px;
+  border-style: solid;
+  border-color: #000;
+  opacity: 1;
+  margin-top: 0;
+  img {
+    width: 13px;
+    height: 13px;
+    top: 13px;
+    right: 13px;
+    cursor: pointer;
+    box-sizing: content-box;
+    position: absolute;
+  }
+}
+
+.droppeddown.user-info {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  height: 37px;
+  a {
+    text-decoration: none;
+    color: #ddd;
+    &:hover {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+  }
+  h2 {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 203px;
+    margin: 0 auto;
+    color: #ddd;
+    vertical-align: baseline;
+    font-family: 'Proxima Nova Rg', Helvetica, Arial;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.2em;
+  }
+}
+
+.droppeddown.links {
+  margin: 25px auto 10px auto;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  li {
+    a {
+      text-decoration: none;
+      color: #ddd;
+      display: block;
+      padding: 25px;
+      &:hover {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+    }
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Proxima Nova Rg', Helvetica, Arial;
+    font-weight: 500;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #ddd;
+    letter-spacing: 0.2em;
+    line-height: 1.2em;
+  }
+}
+
+.droppeddown.user-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 30px 100px;
+  max-width: 30em;
+  max-height: 36.25em;
+  display: block;
+  img {
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: 10px;
+    left: 12.5px;
   }
 }
