@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-words = %W(contemporary fashionable popular stylish swank fly in in vogue latest modish now kawai up-to-the-minute voguish with-it à-la-mode A-OK adequate admissible all right average big common cool copacetic decent delightful fair hip hunky-dory kosher large okay passable peachy-keen pleasant pleasing respectable right-on standard sufficient swell tolerable trendy unexceptional unobjectionable welcome)
+words = %W(kawai love me tbt cute happy beautiful girl smile friends fun fashion summer food amazing swag life lol pretty hair my sun art cool funny bored girls nature music party eyes fitness architecture sky baby hot colorful black photo shoes tired)
 
 User.create!({email: 'kyarypamyu@pamyu.jp', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg'})
 User.create!({username: 'Hunter', email: 'hunter@gmail.com', password: 'password', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg'})
