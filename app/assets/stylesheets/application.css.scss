@@ -681,16 +681,26 @@ body {
   a > img {
     height: 25px;
     width: 25px;
+    margin: 19px 14px;
+    -webkit-filter: opacity(0.2);
+    &:hover {
+      -webkit-filter: opacity(0.4);
+    }
+  }
+  div > a > div {
+    height: 25px;
+    width: 25px;
+    margin: 19px 14px;
+  }
+  a:not(.grid-view-a) {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
     -webkit-filter: opacity(0.2);
     margin: 19px 14px;
     &:hover {
       -webkit-filter: opacity(0.4);
     }
-  }
-  a {
-    display: inline-block;
-    height: 57px;
-    width: 57px;
   }
 }
 
@@ -739,7 +749,7 @@ body {
   p {
     color: #666;
     margin-bottom: 1.85em;
-    }
+  }
   a {
     margin-left: auto;
     margin-right: auto;
@@ -754,4 +764,14 @@ body {
 
 .drop-menu-usergrid {
   display: none;
+}
+
+.vert-box {
+  background-color: black;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-filter: opacity(0.2);
+  &:hover {
+    -webkit-filter: opacity(0.4);
+  }
 }

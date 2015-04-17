@@ -14,9 +14,17 @@
       </div>
     </div>
   <% } %>
-    <a class='grid-view-a' href="javascript:void(0)">
-      <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/grid_view_icon.svg' class='grid-view'>
-    </a>
+  <div class='view-toggle'>
+    <% if ( style === 'grid' ) { %>
+      <a class='grid-view-a' href="javascript:void(0)">
+        <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/grid_view_icon.svg' class='grid-view'>
+      </a>
+    <% } else if ( style === 'vert' ){ %>
+      <a class='grid-view-a' href='javascript:void(0)'>
+        <div class='vert-box'></div>
+      </a>
+    <% } %>
+  </div>
 </div>
 
 <div class='drop-menu-usergrid'>

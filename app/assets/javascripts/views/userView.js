@@ -4,6 +4,12 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.model, "change", this.changeButton);
+    this.style = 'grid';
+  },
+
+  events: {
+    'click .nav-follow-icon': 'toggleFollow',
+    'click .grid-view-a': 'toggleViewStyle',
   },
 
   changeButton: function () {
@@ -14,13 +20,16 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     }
   },
 
-  events: {
-    'click .nav-follow-icon': 'toggleFollow',
-    'click .grid-view-a': 'toggleViewStyle'
-  },
-
   toggleViewStyle: function () {
-
+    if (this.style === 'grid') {
+      this.style = 'vert';
+      $('.view-toggle').html("<a class='grid-view-a' href='javascript:void(0)'><div class='vert-box'></div></a>");
+      $('.grida-images').hide();
+    } else if (this.style === 'vert') {
+      this.style = 'grid';
+      $('.view-toggle').html("<a class='grid-view-a' href='javascript:void(0)'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/grid_view_icon.svg' class='grid-view'></a>");
+      $('.grida-images').show();
+    }
   },
 
   toggleFollow: function () {
@@ -60,7 +69,8 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     if (this.collection.length > 0) {
       var content = this.template({
         images: this.collection,
-        user: this.model
+        user: this.model,
+        style: this.style
       });
       this.$el.html(content);
       this.renderGrid();

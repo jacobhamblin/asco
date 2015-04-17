@@ -55,7 +55,6 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
 
   render: function () {
     $('.navbar.navbar-default').hide();
-    console.log(this.collection.length);
     if (this.collection.length > 0) {
       var content = this.template({
         images: this.collection,
