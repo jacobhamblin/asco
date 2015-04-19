@@ -539,7 +539,7 @@ body {
   padding: 6em 0;
 }
 
-.image-tags {
+.image-tag {
   color: #a6a547;
 }
 
@@ -560,6 +560,10 @@ body {
   &:hover {
     color: #a6a547;
     text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+    color: #a6a547;
   }
 }
 

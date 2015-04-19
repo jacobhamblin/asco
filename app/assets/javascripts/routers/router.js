@@ -10,7 +10,8 @@ Asco.Routers.Router = Backbone.Router.extend ({
     'grid': 'grid',
     'users/:id': 'userGrid',
     'images/:id': 'show',
-    'search': 'search'
+    'search': 'search',
+    'search/:string': 'searchString'
   },
 
   feed: function () {
@@ -69,6 +70,17 @@ Asco.Routers.Router = Backbone.Router.extend ({
     });
 
     this._swapView(searchView);
+  },
+
+  searchString: function (string) {
+    this.images = new Asco.Collections.Images();
+    var searchView = new Asco.Views.SearchView({
+      collection: this.images
+    });
+
+    this._swapView(searchView);
+    $('.search-field').val(string);
+    $('.search-field').keyup();
   },
 
   _swapView: function (view) {

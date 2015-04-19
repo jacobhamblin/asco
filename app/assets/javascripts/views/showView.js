@@ -9,7 +9,8 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
   events: {
     'click .nav.dropdown': 'openDropdownMenu',
     'click .nav.droppeddown.close': 'closeDropdownMenu',
-    'click :not(.nav.droppeddown)': 'closeDropdownMenu'
+    'click :not(.nav.droppeddown)': 'closeDropdownMenu',
+    'click .image-tag': 'searchTag'
   },
 
   openDropdownMenu: function () {
@@ -25,6 +26,13 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
       $('.nav.droppeddown').hide();
       this.openDropdown = false;
     }
+  },
+
+  searchTag: function (event) {
+    event.preventDefault();
+    var tag = $(event.target).text().match(/#\w+/g)[0];
+    var strippedTag = tag.substring(1, tag.length);
+    window.location.href = "#search/" + strippedTag;
   },
 
   currentIndex: function () {

@@ -53,7 +53,7 @@
     <div class="image-description">
       <%= image.escape('description') %>
       <% image.tags().each(function(tag) { %>
-        <a href="#" class="image-tag">
+        <a href='javascript:void(0)' class='image-tag'>
           #<%= tag.escape('title') %>
         </a>
       <% }) %>
