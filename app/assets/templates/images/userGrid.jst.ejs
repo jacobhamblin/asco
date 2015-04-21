@@ -94,9 +94,7 @@
   <h4>Filter By Tag</h4>
   <div class='tag-list'>
     <% _.each(allTags, function (tag) { %>
-      <a href='#users/' + user.id + '/' + 'tag.escape('title')'>
-        <%= tag %>
-      </a>
+      <a href='#users/' + user.id + '/' + 'tag.escape('title')'><%= tag %></a>
     <% }) %>
   </div>
 </div>

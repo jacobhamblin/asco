@@ -25,7 +25,7 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     $('.tag-index-overlay').show();
     var width = 0;
     $('.tag-list').children('a').each(function(index, a) {
-    width += $(a).outerWidth(true) + 1 * $('.tag-list').children('a').length;
+      width += ($(a).outerWidth(true)) + 4;
     })
     $('.tag-list').width(width);
   },
