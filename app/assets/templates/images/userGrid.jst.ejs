@@ -1,8 +1,8 @@
-<script src="//fast.eager.io/9LEvPeLz_c.js"></script>
-
 <div class='nav dropdown'>
   <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_hamburger%402x.png'>
 </div>
+
+<img class='toggle-views-arrow one' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
 
 <div class='nav droppeddown'>
   <div class='nav droppeddown close'>
@@ -27,6 +27,7 @@
 
   </div>
 
+
   <ul class='droppeddown links'>
     <li><a href='#feed'>Feed</a></li>
     <li><a href='#grid'>Grid</a></li>
@@ -40,11 +41,11 @@
       <div class='nav-user'>
         <div class='nav-follow-toggle'>
           <% if (user.escape('follow') == 'true') { %>
-            <a href="javascript:void(0)>"
+            <a href="javascript:void(0) class='follow-icon-a'>"
               <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' class='nav-follow-icon followed'>
             </a>
           <% } else { %>
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" class='follow-icon-a'>
               <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' class='nav-follow-icon follow'>
             </a>
           <% } %>

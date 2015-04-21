@@ -10,7 +10,24 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
     'click .nav.dropdown': 'openDropdownMenu',
     'click .nav.droppeddown.close': 'closeDropdownMenu',
     'click :not(.nav.droppeddown)': 'closeDropdownMenu',
-    'click .image-tag': 'searchTag'
+    'click .image-tag': 'searchTag',
+    'mouseover .hash-tags-arrow': 'toggleArrow',
+  },
+
+  moveArrow: function () {
+    window.onload = function() {
+      var pos = $('.image-tag').offset();
+      $('.hash-tags-arrow').css({top: pos.top - 25, left: pos.left + 20});
+      $('.hash-tags-arrow').show();
+    };
+  },
+
+  toggleArrow: function () {
+    $.fn.myToggle = function(duration) {
+      return this.animate({opacity: "toggle"}, duration || 1000);
+    };
+
+    $('.hash-tags-arrow').myToggle('slow');
   },
 
   openDropdownMenu: function () {
@@ -91,8 +108,10 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
         prevImage: this.prevImage(),
         nextImage: this.nextImage()
       });
+
     }
     this.$el.html(content);
+    this.moveArrow();
     return this;
   }
 });

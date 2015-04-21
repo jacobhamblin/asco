@@ -3,6 +3,13 @@
 
 <div class='grid-description'></div>
 
+<img class='grid-description-arrow' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+
+<script>
+  var pos = $('.grid-icon').offset();
+  $('.grid-description-arrow').css({top: pos.top + 23, left: pos.left - 30});
+</script>
+
 <% if (images.length > 0) { %>
   <div class="grida-images">
     <% images.each(function (image) { %>

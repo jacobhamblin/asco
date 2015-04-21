@@ -3,7 +3,7 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.model, "change", this.changeButton);
+    this.listenTo(this.model, "sync change", this.changeButton);
     this.style = 'grid';
     this.options = options;
   },
@@ -18,7 +18,16 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     'click .remove-filter': 'removeFilter',
     'click .view-tags-a': 'addOverlay',
     'click .tag-index-overlay': 'hideOverlay',
-    'click .tag-list a': 'filterImageListByTag'
+    'click .tag-list a': 'filterImageListByTag',
+    'mouseover .toggle-views-arrow': 'toggleArrow'
+  },
+
+  toggleArrow: function () {
+    $.fn.myToggle = function(duration) {
+      return this.animate({opacity: "toggle"}, duration || 1000);
+    };
+
+    $('.toggle-views-arrow').myToggle('slow');
   },
 
   addOverlay: function () {
@@ -136,7 +145,8 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     });
 
     $('.navbar.navbar-default').hide();
-    if (this.collection.length > 0) {
+    debugger
+    if (this.collection.length > 0 && this.model.get('follow') != 'undefined') {
       var content = this.template({
         images: this.collection,
         user: this.model,
@@ -159,7 +169,6 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
           $(col).hide();
         }
       });
-
     }
     return this;
   }

@@ -6,7 +6,8 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .grid-icon': 'toggleGridDescription'
+    'click .grid-icon': 'toggleGridDescription',
+    'mouseover .grid-description-arrow': 'toggleArrow'
   },
 
   toggleGridDescription: function () {
@@ -36,12 +37,21 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
     });
   },
 
+  toggleArrow: function () {
+    $.fn.myToggle = function(duration) {
+      return this.animate({opacity: "toggle"}, duration || 1000);
+    };
+
+    $('.grid-description-arrow').myToggle('slow');
+  },
+
   render: function () {
     var content = this.template({
       images: this.collection
     });
     this.$el.html(content);
     this.renderGrid();
+
     return this;
   },
 

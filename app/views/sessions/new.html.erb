@@ -2,7 +2,8 @@
 
 <div class='signin-page'></div>
 
-<script src="//fast.eager.io/cY9bjaZShq.js"></script>
+<img class='guest-login-arrow' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+
 
 <div class="entry-area">
   <img class='logo-home' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/logo_asco_white_no_bg.png'><br>
@@ -54,4 +55,17 @@
        }
      }, 50);
    }
- </script>
+</script>
+
+<script>
+  var pos = $('.btn.guest-login.grey').offset();
+  $('.guest-login-arrow').css({top: pos.top + 7, left: pos.left - 30});
+
+  $.fn.myToggle = function(duration) {
+    return this.animate({opacity: "toggle"}, duration || 1000);
+  };
+
+  $('.guest-login-arrow').mouseover(function () {
+    $('.guest-login-arrow').myToggle('slow');
+  })
+</script>
