@@ -11,7 +11,8 @@ Asco.Routers.Router = Backbone.Router.extend ({
     'users/:id': 'userGrid',
     'images/:id': 'show',
     'search': 'search',
-    'search/:string': 'searchString'
+    'search/:string': 'searchString',
+    'users/:id/:tag': 'userGridTag'
   },
 
   feed: function () {
@@ -44,11 +45,28 @@ Asco.Routers.Router = Backbone.Router.extend ({
 
     var userView = new Asco.Views.UserView({
       collection: this.images,
-      model: user
+      model: user,
+      activeTag: ''
     });
 
     this._swapView(userView);
   },
+
+  userGridTag: function (id, tag) {
+    this.images = new Asco.Collections.Images();
+    this.images.fetch({ data: { source: id } });
+    var user = new Asco.Models.User({id: id});
+    user.fetch();
+
+      var userView = new Asco.Views.UserView({
+      collection: this.images,
+      model: user,
+      activeTag: tag,
+    });
+
+    this._swapView(userView);
+  },
+
 
   show: function (id) {
     this.images = new Asco.Collections.Images();

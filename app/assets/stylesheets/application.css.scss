@@ -313,6 +313,7 @@ body {
 .avatar-usergrid {
   width: 64px;
   height: 64px;
+  cursor: pointer;
 }
 
 .prev-image {
@@ -697,7 +698,7 @@ body {
     width: 25px;
     margin: 19px 14px;
   }
-  a:not(.grid-view-a) {
+  a:not(.grid-view-a):not(.view-tags-a) {
     display: inline-block;
     height: 25px;
     width: 25px;
@@ -737,6 +738,22 @@ body {
 
 .nav-usergrid {
   display: table;
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.85em;
+  text-align: center;
+  max-width: 280px;
+  margin-top: 1.85em;
+  font-family: "Times New Roman", TimesNewRoman, Times, Georgia, serif;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 415px;
+  padding: 0 0.7em;
+  color: #666;
+  margin-bottom: 1.85em;
 }
 
 .grid-description {
@@ -951,4 +968,90 @@ body {
     top: 10px;
     left: 12.5px;
   }
+}
+
+.selected-tag {
+  font-family: 'Proxima Nova Rg', Helvetica, Arial;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  background: #eee;
+  color: #000;
+  display: inline-block;
+  padding: 1em 1.4em 1em 1.3em;
+  color: black;
+}
+
+.selected-tag-space {
+  max-width: 200px;
+  margin: 2.4em auto 0;
+  width: 100%;
+  padding: 0 1em;
+  text-align: center;
+  padding: 1.5em 0;
+  width: 100%;
+  border-top: 1px solid #d8d8d8;
+}
+
+.remove-filter {
+  cursor: pointer;
+  position: relative;
+  top: 0.5px;
+  left: 5px;
+  font-size: 24px;
+  font-size: 1.0rem;
+}
+
+.tag-index-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  background: rgba(255,255,255,0.95);
+  z-index: 5;
+  padding-top: 59px;
+  h4 {
+    border: 0;
+    color: #000;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-family: 'proxima_nova_rgbold', Helvetica, Arial;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: .2em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 60px auto 50px;
+  }
+}
+
+.tag-list {
+  max-width: 80%;
+  margin: 0 auto;
+  a {
+    cursor: pointer;
+    font-family: 'Proxima Nova Rg', Helvetica, Arial;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    background: #eee;
+    color: #000;
+    display: inline-block;
+    padding: 1em;
+    color: black;
+    margin: 0.35em;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      text-decoration: none;
+      background: #ddd;
+    }
+  }
+}
+
+.tag-button {
+  cursor: pointer;
 }

@@ -8,10 +8,10 @@
 
 words = %W(kawai love me tbt cute happy beautiful girl smile friends fun fashion summer food amazing swag life lol pretty hair my sun art cool funny bored girls nature music party eyes fitness architecture sky baby hot colorful black photo shoes tired)
 
-User.create!({email: 'kyarypamyu@pamyu.jp', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg'})
-User.create!({username: 'Hunter', email: 'hunter@gmail.com', password: 'password', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg'})
-User.create!({email: 'marco@polo.com', password: 'password', avatar: 'http://image.vsco.co/1/52da8b5a63812289753/545859047267083f788b4584/210x210/304ebc82574dbd7af585bcfb7dad551a/vsco_110414.jpg'})
-User.create!({username: 'eun kim', email: 'eun@kim.io', password: 'password', avatar: 'http://image.vsco.co/1/5217ab36ad5bf70382/545ee02c736708b0258b45e5/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_110814.jpg'})
+User.create!({email: 'kyarypamyu@pamyu.jp', password: 'password', avatar: 'http://image.vsco.co/1/5263b65016967110746/54187aa77367084a3a8b4c1f/300x300/ebcce9088d76123b73c2b93ff9df77dd/vsco_091614.jpg', description: "japanese and kawaiiii"})
+User.create!({username: 'Hunter', email: 'hunter@gmail.com', password: 'password', avatar: 'http://image.vsco.co/1/54fd1111dd8222556169/5529d729e355150e638b4570/300x300/a632dfd8ab46ad1c96c561bff21b6611/a59f3c17-218b-43ea-87a1-aa0a513c1ff4.jpg', description: "aka: dragonslayer3000"})
+User.create!({email: 'marco@polo.com', password: 'password', avatar: 'http://image.vsco.co/1/52da8b5a63812289753/545859047267083f788b4584/210x210/304ebc82574dbd7af585bcfb7dad551a/vsco_110414.jpg', description: "look for me!"})
+User.create!({username: 'eun kim', email: 'eun@kim.io', password: 'password', avatar: 'http://image.vsco.co/1/5217ab36ad5bf70382/545ee02c736708b0258b45e5/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_110814.jpg', description: "anyang"})
 User.create!({username: 'dan', email: 'dsmith@gmail.com', password: 'password', avatar: 'http://image.vsco.co/1/5416420f7592b965209/54c493072756151b358b4579/300x300/e087a62dca81c99f3b9c9476f39d1bc2/vsco_012415.jpg'})
 
 Following.create!({issuer_id: 1, recipient_id: 2})

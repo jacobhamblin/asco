@@ -30,9 +30,10 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
 
   searchTag: function (event) {
     event.preventDefault();
+    var id = this.model.owner().id;
     var tag = $(event.target).text().match(/#\w+/g)[0];
     var strippedTag = tag.substring(1, tag.length);
-    window.location.href = "#search/" + strippedTag;
+    window.location.href = "#users/" + id + "/" + strippedTag;
   },
 
   currentIndex: function () {
