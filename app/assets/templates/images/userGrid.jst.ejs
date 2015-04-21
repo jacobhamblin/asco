@@ -2,7 +2,9 @@
   <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_hamburger%402x.png'>
 </div>
 
-<img class='toggle-views-arrow one' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+<% if (Asco.Globals.userArrow) { %>
+  <img class='toggle-views-arrow' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+<% } %>
 
 <div class='nav droppeddown'>
   <div class='nav droppeddown close'>

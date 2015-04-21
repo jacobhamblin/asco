@@ -28,6 +28,7 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     };
 
     $('.toggle-views-arrow').myToggle('slow');
+    Asco.Globals.userArrow = false;
   },
 
   addOverlay: function () {
@@ -145,7 +146,6 @@ Asco.Views.UserView = Backbone.CompositeView.extend({
     });
 
     $('.navbar.navbar-default').hide();
-    debugger
     if (this.collection.length > 0 && this.model.get('follow') != 'undefined') {
       var content = this.template({
         images: this.collection,

@@ -43,6 +43,8 @@ Asco.Views.GridView = Backbone.CompositeView.extend({
     };
 
     $('.grid-description-arrow').myToggle('slow');
+
+    Asco.Globals.gridArrow = false;
   },
 
   render: function () {

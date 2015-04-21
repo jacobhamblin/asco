@@ -59,7 +59,8 @@
       <% }) %>
     </div>
 
-    <img class='hash-tags-arrow' style='display: none' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
-
+    <% if (Asco.Globals.showArrow) { %>
+      <img class='hash-tags-arrow' style='display: none' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+    <% } %>
   </div>
 </div>

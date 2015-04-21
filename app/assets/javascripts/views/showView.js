@@ -28,6 +28,7 @@ Asco.Views.ShowView = Backbone.CompositeView.extend({
     };
 
     $('.hash-tags-arrow').myToggle('slow');
+    Asco.Globals.showArrow = false;
   },
 
   openDropdownMenu: function () {

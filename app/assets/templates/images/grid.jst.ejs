@@ -3,7 +3,9 @@
 
 <div class='grid-description'></div>
 
-<img class='grid-description-arrow' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+<% if (Asco.Globals.gridArrow) { %>
+  <img class='grid-description-arrow' src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg'>
+<% } %>
 
 <script>
   var pos = $('.grid-icon').offset();
