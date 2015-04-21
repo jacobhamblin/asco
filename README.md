@@ -16,7 +16,7 @@ asco is a clone of vsco built on Rails and Backbone. Users can:
 - [x] View a feed of followed user
 - [x] Search for images by title
 - [x] Search for images by user
-- [ ] Sort Images by tags on user view
+- [x] Sort Images by tags on user view
 - [x] Navigation menu on navbar-less pages
 
 ## Design Docs
