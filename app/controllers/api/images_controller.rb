@@ -28,7 +28,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(todo_params)
+    @image = Image.new(image_params)
     @image.owner_id = current_user.id
     if @image.save
       render :json => @image
@@ -38,7 +38,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def update
-    if @image.update_attributes(todo_params)
+    if @image.update_attributes(image_params)
       render :json => @image
     else
       fail
