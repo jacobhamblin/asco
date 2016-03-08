@@ -5,9 +5,6 @@ json.owner do
   json.extract! image.owner, :id, :username, :email, :avatar
 end
 
-
-
-
 json.tags do
   json.array! image.tags, :title
 end
