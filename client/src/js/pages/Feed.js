@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { renderGrid } from '../utils'
 import { GridImages, Navbar } from '../components'
 
 class Feed extends Component {
@@ -19,19 +18,14 @@ class Feed extends Component {
     })
   }
 
-  componentDidUpdate() {
-    if (this.state.images) renderGrid()
-  }
-
   render() {
     const { images } = this.state
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages images={images}/> : null)
+    gridImages = (images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
 
     return (
       <div className="feed">
         <Navbar/>
-        <div className="grida-images">
           <div className="feed-header">
             <div className="white-pixel">
               <img src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/whitepixel.png"/>
@@ -44,7 +38,6 @@ class Feed extends Component {
           </div>
           {gridImages}
 
-        </div>
       </div>
     )
   }

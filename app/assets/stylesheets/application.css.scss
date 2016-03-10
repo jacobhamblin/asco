@@ -486,6 +486,7 @@ body {
 
 .item {
   margin-top: 1.2em;
+  width: 300px;
   img {
     // -webkit-filter: blur(3px);
     transition: -webkit-filter .15s ease;
@@ -500,7 +501,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
 }
 
 .user-show-title {
@@ -545,14 +548,12 @@ body {
 }
 
 .image-item {
-  display: none;
   -webkit-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
   -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
   box-shadow:inset 0px 0px 0px 10px #f9f9f9;
 }
 
 .image-owner {
-  opacity: 0;
   transition: opacity 200ms ease;
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { renderGrid } from '../utils'
 import { GridImages, Navbar } from '../components'
 
 class Grid extends Component {
@@ -20,7 +19,6 @@ class Grid extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.images) renderGrid()
   }
 
   gridIconClick() {
@@ -34,7 +32,7 @@ class Grid extends Component {
   render() {
     const { images } = this.state
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages images={images}/> : null)
+    gridImages = (images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
 
     return (
       <div className="grid">
@@ -45,10 +43,8 @@ class Grid extends Component {
 
         <div className='grid-description'></div>
 
-        <div className="grida-images">
-          {gridImages}
+        {gridImages}
 
-        </div>
       </div>
     )
   }

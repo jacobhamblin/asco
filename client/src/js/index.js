@@ -17,7 +17,7 @@ $(function () {ReactDOM.render(
         <Route path="feed" component={Feed}/>
         <Route path="grid" component={Grid}/>
         <Route path="users" component={Users}>
-          <Route path="/user/:userId" component={User}/>
+          <Route path="/users/:userId" component={User}/>
         </Route>
         <Route path="search" component={Search}/>
       </Route>
