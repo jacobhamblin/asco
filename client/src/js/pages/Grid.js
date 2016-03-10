@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { renderGrid, correctImageSize } from '../utils'
+import { renderGrid } from '../utils'
+import { GridImages, Navbar } from '../components'
 
 class Grid extends Component {
   constructor(props) {
@@ -30,28 +31,14 @@ class Grid extends Component {
     }
   }
 
-  assembleImages() {
-    let { images } = this.state
-    let i = 0
-    images = images.map(image => {
-      return <div className="item" key={i++}>
-        <a className="image-item-a" href={'#/images/' + image.id}><img className="image-item" src={correctImageSize(image.url, '262')}/></a>
-        <a href="" className="image-owner">
-          {image.owner.username ? image.owner.username : image.owner.email} <br/>
-        </a>
-      </div>
-    })
-
-    return images
-  }
-
   render() {
     const { images } = this.state
-    let assembleImages = null
-    assembleImages = (images.length > 0 ? this.assembleImages() : null)
+    let gridImages = null
+    gridImages = (images.length > 0 ? <GridImages images={images}/> : null)
 
     return (
       <div className="grid">
+        <Navbar/>
         <img
         src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/profile.jpg"
         className="grid-icon" onClick={this.gridIconClick}/>
@@ -59,17 +46,7 @@ class Grid extends Component {
         <div className='grid-description'></div>
 
         <div className="grida-images">
-          <div className="grid-header">
-            <div className="white-pixel">
-              <img src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/whitepixel.png"/>
-            </div>
-            <div className="following">
-              <right>
-                Following
-              </right>
-            </div>
-          </div>
-          {assembleImages}
+          {gridImages}
 
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { renderGrid, correctImageSize } from '../utils'
+import { renderGrid } from '../utils'
+import { GridImages, Navbar } from '../components'
 
 class Feed extends Component {
   constructor(props) {
@@ -22,28 +23,14 @@ class Feed extends Component {
     if (this.state.images) renderGrid()
   }
 
-  assembleImages() {
-    let { images } = this.state
-    let i = 0
-    images = images.map(image => {
-      return <div className="item" key={i++}>
-        <a className="image-item-a" href={'#/images/' + image.id}><img className="image-item" src={correctImageSize(image.url, '262')}/></a>
-        <a href="" className="image-owner">
-          {image.owner.username ? image.owner.username : image.owner.email} <br/>
-        </a>
-      </div>
-    })
-
-    return images
-  }
-
   render() {
     const { images } = this.state
-    let assembleImages = null
-    assembleImages = (images.length > 0 ? this.assembleImages() : null)
+    let gridImages = null
+    gridImages = (images.length > 0 ? <GridImages images={images}/> : null)
 
     return (
       <div className="feed">
+        <Navbar/>
         <div className="grida-images">
           <div className="feed-header">
             <div className="white-pixel">
@@ -55,7 +42,7 @@ class Feed extends Component {
               </right>
             </div>
           </div>
-          {assembleImages}
+          {gridImages}
 
         </div>
       </div>
