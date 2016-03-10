@@ -1,1 +1,1 @@
-export Fastclick from './fastclick'
+export FastClick from './fastclick'

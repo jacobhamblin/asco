@@ -3,7 +3,7 @@ window.Asco = {
   Collections: {},
   Views: {},
   Routers: {},
-  Globals: {userArrow: true, gridArrow: true, showArrow: true},
+  Globals: {userArrow: false, gridArrow: false, showArrow: false},
   initialize: function() {
     new Asco.Routers.Router({$rootEl: $('#content')});
     Backbone.history.start();

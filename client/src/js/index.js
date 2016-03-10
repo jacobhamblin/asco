@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import { Router, Route, Link, browserHistory, useRouterHistory, IndexRoute } from 'react-router'
 import { createHashHistory } from 'history'
 import App from './App.js'
-import { Feed, Grid, User, Search } from './pages'
+import { Feed, Grid, User, Users, Search } from './pages'
 import NoMatch from './NoMatch.js'
 import { FastClick } from './vendor'
 
 const history = useRouterHistory(createHashHistory)({ queryKey: false })
 
-ReactDOM.render(
+$(function () {ReactDOM.render(
   (
     <Router history={history}>
       <Route path="/" component={App}>
@@ -25,6 +25,6 @@ ReactDOM.render(
     </Router>
   ),
   document.querySelector('#content')
-);
+)});
 
-FastClick.attach(document.body)
+$(function() {(FastClick.attach(document.body))})
