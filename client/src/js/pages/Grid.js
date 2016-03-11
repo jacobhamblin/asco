@@ -18,9 +18,6 @@ class Grid extends Component {
     })
   }
 
-  componentDidUpdate() {
-  }
-
   gridIconClick() {
     if ( $('.grid-description').html() === '') {
       $('.grid-description').html("<p>A showcase of exceptional images from around the globe. Download VSCO Cam® to shoot, edit, and share photographs.</p><a href='http://vsco.co/vscocam'>vsco.co/vscocam</a>");
@@ -32,7 +29,7 @@ class Grid extends Component {
   render() {
     const { images } = this.state
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
+    gridImages = (images.length > 0 ? <GridImages images={images} author={true} size={'262'}/> : null)
 
     return (
       <div className="grid">
