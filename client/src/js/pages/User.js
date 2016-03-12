@@ -26,6 +26,8 @@ function hasTag(image, tagName) {
 class User extends Component {
   constructor(props) {
     super(props)
+    let activeTag = this.presentTag()
+
     this.removeActiveTag = this.removeActiveTag.bind(this)
     this.setActiveTag = this.setActiveTag.bind(this)
     this.showTags = this.showTags.bind(this)
@@ -34,9 +36,9 @@ class User extends Component {
     this.toggleVertical = this.toggleVertical.bind(this)
     this.state = {
       images: [],
-      userID: props.routeParams.userId,
+      userID: props.routeParams.id,
       vertical: false,
-      activeTag: false,
+      activeTag,
       showTags: false,
       user: null,
       allTags: null
@@ -100,6 +102,15 @@ class User extends Component {
     return images
   }
 
+  presentTag() {
+    let split = window.location.hash.split('?')
+    if (split.length === 1) {
+      return false
+    } else {
+      return split[1]
+    }
+  }
+
   render() {
     let { images, activeTag, userID, user, showTags, allTags, vertical } = this.state
     let gridImages = null, header = null, activeTagEl = null, followButton = null, tagIndexOverlay = null
@@ -113,7 +124,7 @@ class User extends Component {
       header = <UserHeader user={images[0].owner}/>
     }
     if (activeTag) activeTagEl = <ActiveTag tag={activeTag} removeActiveTag={this.removeActiveTag}/>
-    if (userID !== window.CURRENT_USER_ID && user) {
+    if (user && user.id !== window.CURRENT_USER_ID) {
       followButton = (
         <FollowButton user={user} toggleFollow={this.toggleFollow}/>
       )
@@ -149,8 +160,9 @@ class User extends Component {
   toggleFollow() {
     const { user } = this.state
     const component = this
+    const { follow, username, description, id } = user
 
-    if (user.follow) {
+    if (user.follow === "true") {
       $('.follow-btns').addClass('inter-follow-state'),
       $.ajax({
         url: 'api/follow/' + component.state.userID + '/delete',
@@ -161,24 +173,20 @@ class User extends Component {
         dataType: 'json',
         method: 'DELETE',
         success: function(result) {
-          $.getJSON('/api/users/' + component.state.userID, (data) => {
-            component.setState({
-              user: data
-            })
+          component.setState({
+            user: {
+              follow: "false",
+              username,
+              description,
+              id
+            }
           })
         },
         complete: function () {
           $('.follow-btns').removeClass('inter-follow-state');
         }
       });
-
-      $.ajax({
-        url: '/api/followings/' + component.state.userID,
-        type: 'DELETE',
-
-      })
     } else {
-      console.log('try to create')
       $('.follow-btns').addClass('inter-follow-state'),
       $.ajax({
         url: 'api/follow/' + component.state.userID + '/create',
@@ -188,10 +196,13 @@ class User extends Component {
         },
         method: 'POST',
         success: function () {
-          $.getJSON('/api/users/' + component.state.userID, (data) => {
-            component.setState({
-              user: data
-            })
+          component.setState({
+            user: {
+              follow: "true",
+              username,
+              description,
+              id
+            }
           })
         },
         complete: function () {

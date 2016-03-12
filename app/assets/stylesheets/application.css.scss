@@ -174,6 +174,13 @@ body {
   left: 0;
 }
 
+.dropdown-toggle span {
+  color: #999;
+  &:hover {
+    color: #333;
+  }
+}
+
 .dropdown-menu {
   border: none;
   padding: 0 0;
@@ -313,7 +320,6 @@ body {
 .avatar-usergrid {
   width: 64px;
   height: 64px;
-  cursor: pointer;
 }
 
 .prev-image {
@@ -360,6 +366,7 @@ body {
   background-size: 18px auto;
   -webkit-filter: opacity(0.5);
   background-repeat: no-repeat;
+  cursor: pointer;
   &:hover {
     -webkit-filter: opacity(1.0);
   }
@@ -1050,6 +1057,9 @@ p {
 .tag-list {
   max-width: 80%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
   a {
     cursor: pointer;
     font-family: 'Proxima Nova Rg', Helvetica, Arial;

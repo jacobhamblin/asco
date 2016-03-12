@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 
 const FollowButton = ({user, toggleFollow}) => {
   let button
-  if (user.follow) {
+  if (user.follow === "true") {
     button = (
       <a href="javascript:void(0)" className='follow-icon-a'>
         <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_circle.png' className='nav-follow-icon followed'/>
       </a>
     )
   } else {
-    <a href="javascript:void(0)" className='follow-icon-a'>
+    button = (
+      <a href="javascript:void(0)" className='follow-icon-a'>
       <img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/icon_follow_plus.png' className='nav-follow-icon follow'/>
-    </a>
+      </a>
+    )  
   }
 
 

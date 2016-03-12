@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import { SiteNav } from './components'
+import { Navbar } from './components'
 
 const NoMatch = () => {
   return (
     <div className="noMatch">
-      <header>
-        <SiteNav/>
-      </header>
+      <Navbar/>
       <h2>404: Not Found!</h2>
     </div>
   )

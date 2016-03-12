@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Router, Route, Link, browserHistory, useRouterHistory, IndexRoute } from 'react-router'
 import { createHashHistory } from 'history'
 import App from './App.js'
-import { Feed, Grid, User, Users, Search } from './pages'
+import { Feed, Grid, User, Users, Images, Search, ImageShow } from './pages'
 import NoMatch from './NoMatch.js'
 import { FastClick } from './vendor'
 
@@ -17,7 +17,10 @@ $(function () {ReactDOM.render(
         <Route path="feed" component={Feed}/>
         <Route path="grid" component={Grid}/>
         <Route path="users" component={Users}>
-          <Route path="/users/:userId" component={User}/>
+          <Route path="/users/:id" component={User}/>
+        </Route>
+        <Route path="images" component={Images}>
+          <Route path="/images/:id" component={ImageShow}/>
         </Route>
         <Route path="search" component={Search}/>
       </Route>
