@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { HamburgerMenu } from '../components'
-
-
+import { HamburgerMenu, ImageComponent } from '../components'
 
 class ImageShow extends Component {
   constructor(props) {
@@ -108,7 +106,7 @@ class ImageShow extends Component {
 
         <div className="image-show clearfix">
           {prevImage}
-          <img src={image.url} className="image"/>
+          <ImageComponent src={image.url} className="image"/>
           {nextImage}
           <div className="image-description">
             {image.description}

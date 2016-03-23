@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { correctImageSize } from '../utils'
+import { ImageComponent } from '../components'
 
 const VerticalImages = ({images, size}) => {
   let i = 0, j = 0
@@ -8,7 +9,9 @@ const VerticalImages = ({images, size}) => {
     <div className="vert-images">
       {images.map(image => {
         return <div className="item vertical" key={i++}>
-          <a className="image-item-a" href={'#/images/' + image.id}><img className="image-item" src={correctImageSize(image.url, size)}/></a>
+          <a className="image-item-a" href={'#/images/' + image.id}>
+            <ImageComponent className="image-item" src={correctImageSize(image.url, size)}/>
+          </a>
           <div className="image-description user-show">
             {image['description']}
             {image.tags.map(function(tag) {

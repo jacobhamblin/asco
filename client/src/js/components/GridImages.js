@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { correctImageSize } from '../utils'
+import { ImageComponent } from '../components'
 
 function owner(image, author) {
   if (author) {
@@ -20,7 +21,9 @@ const GridImages = ({images, size, author}) => {
     <div className="grida-images">
       {images.map(image => {
         return <div className="item" key={i++}>
-          <a className="image-item-a" href={'#/images/' + image.id}><img className="image-item" src={correctImageSize(image.url, size)}/></a>
+          <a className="image-item-a" href={'#/images/' + image.id}>
+            <ImageComponent className="image-item" src={correctImageSize(image.url, size)}/>
+          </a>
           {owner(image, author)}
         </div>
       })}
