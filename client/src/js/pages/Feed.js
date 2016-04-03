@@ -1,25 +1,21 @@
 import React, { Component } from 'react'
 import { GridImages, Navbar } from '../components'
+import { fetchImages } from '../actions'
+import { connect } from 'react-redux'
 
 class Feed extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      images: []
-    }
+    window.feed = Feed;
   }
 
   componentDidMount() {
-    let url = '/api/images'
-    $.getJSON(url, {source: "feed"}, (data) => {
-      this.setState({
-        images: data
-      })
-    })
+    const { dispatch } = this.props
+    dispatch(fetchImages('feed'))
   }
 
   render() {
-    const { images } = this.state
+    const { images, lastUpdated, isFetching } = this.props
     let gridImages = null
     gridImages = (images.length > 0 ? <GridImages author={true} images={images} size={'262'}/> : null)
 
@@ -43,4 +39,15 @@ class Feed extends Component {
   }
 }
 
-export default Feed
+function mapStateToProps(state) {
+  const { displayStyle } = state
+  const imagesState = state.images
+  const { images, lastUpdated, isFetching } = imagesState
+  return {
+    images,
+    lastUpdated,
+    isFetching
+  }
+}
+
+export default connect(mapStateToProps)(Feed)
