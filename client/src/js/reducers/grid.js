@@ -1,14 +1,14 @@
 import { REQUEST_IMAGES, RECEIVE_IMAGES } from '../actions'
 
-const images = (state = {
+const grid = (state = {
   isFetching: false,
-  images: []
+  images: [],
+  lastUpdated: 0
 }, action) => {
   switch (action.type) {
     case REQUEST_IMAGES:
       return Object.assign({}, state, {
         isFetching: true,
-        lastUpdated: 0
       })
     case RECEIVE_IMAGES:
       return Object.assign({}, state, {
@@ -21,4 +21,4 @@ const images = (state = {
   }
 }
 
-export default images
+export default grid

@@ -43,9 +43,8 @@ class Grid extends Component {
 }
 
 function mapStateToProps(state) {
-  const { displayStyle } = state
-  const imagesState = state.images
-  const { images, lastUpdated, isFetching } = imagesState
+  const { grid, displayStyle } = state
+  const { images, lastUpdated, isFetching } = grid
   return {
     images,
     lastUpdated,

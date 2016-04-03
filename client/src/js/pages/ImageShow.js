@@ -1,41 +1,24 @@
 import React, { Component } from 'react'
 import { HamburgerMenu, ImageComponent } from '../components'
-import { fetchImages } from '../actions'
+import { fetchImagesShow, adjustIndex } from '../actions'
+import { connect } from 'react-redux'
 
 class ImageShow extends Component {
   constructor(props) {
     super(props)
     this.prevImage = this.prevImage.bind(this)
     this.nextImage = this.nextImage.bind(this)
-    this.state = {
-      image: null,
-      collection: null,
-      index: -1,
-      imageID: parseInt(props.routeParams.id)
-    }
-  }
-
-  loadData() {
-    $.getJSON('/api/images', { source: "img" + this.state.imageID}, (data) => {
-      let index = -1;
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].id === this.state.imageID) index = i
-      }
-
-      this.setState({
-        image: data[index],
-        collection: data,
-        index
-      })
-    })
+    window.comp = this
   }
 
   componentDidMount() {
-    this.loadData()
+    let { routeParams, dispatch } = this.props
+    let { id } = routeParams
+    dispatch(fetchImagesShow('img' + id))
   }
 
   hasPrevImage() {
-    let { index, collection } = this.state
+    let { index, collection } = this.props
 
     if (collection && index > 0 && collection.length > 1) {
       return true
@@ -45,7 +28,7 @@ class ImageShow extends Component {
   }
 
   hasNextImage() {
-    let { index, collection } = this.state
+    let { index, collection } = this.props
 
     if (collection && index < collection.length - 1 && collection.length > 1) {
       return true
@@ -55,14 +38,11 @@ class ImageShow extends Component {
   }
 
   prevImage() {
-    let { index, collection } = this.state
+    let { index, collection, dispatch } = this.props
 
     if (collection && index > 0 && collection.length > 1) {
-      this.setState({
-        image: collection[index - 1],
-        collection,
-        index: index - 1
-      })
+      dispatch(adjustIndex(-1))
+
       let split = window.location.hash.split('/')
       split[split.length - 1] = collection[index - 1].id
       window.location.hash = split.join('/')
@@ -72,24 +52,21 @@ class ImageShow extends Component {
   }
 
   nextImage() {
-    let { index, collection } = this.state
+    let { index, collection, dispatch } = this.props
 
-    if (collection && index < collection.length - 1 && collection.length > 1)
-      this.setState({
-        image: collection[index + 1],
-        collection,
-        index: index + 1
-      })
+    if (collection && index < collection.length - 1 && collection.length > 1) {
+      dispatch(adjustIndex(1))
+
       let split = window.location.hash.split('/')
       split[split.length - 1] = collection[index + 1].id
       window.location.hash = split.join('/')
-      return
+    }
 
     return false
   }
 
   render() {
-    let { image } = this.state, i = 0
+    let { image } = this.props, i = 0
     let prevImage, nextImage, content
     if (this.hasPrevImage()) prevImage = (
       <a onClick={this.prevImage} className="prev-image arrows"></a>
@@ -133,4 +110,16 @@ class ImageShow extends Component {
   }
 }
 
-export default ImageShow
+function mapStateToProps(state) {
+  const { imageShow, displayStyle } = state
+  const { image, lastUpdated, isFetching, collection, index } = imageShow
+  return {
+    image,
+    lastUpdated,
+    isFetching,
+    collection,
+    index
+  }
+}
+
+export default connect(mapStateToProps)(ImageShow)

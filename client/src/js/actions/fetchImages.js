@@ -1,10 +1,6 @@
 // require('es6-promise').polyfill();
 // import fetch from 'isomorphic-fetch';
 
-let headers = new Headers()
-headers.set('Content-Type', 'application/json')
-headers.set('cookie', '_asco_session=' + Asco.SESSION_TOKEN)
-
 export const REQUEST_IMAGES = 'REQUEST_IMAGES'
 function requestImages(source) {
   return {

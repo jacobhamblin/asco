@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import images from './images'
+import grid from './grid'
 import displayStyle from './displayStyle'
+import imageShow from './imageShow'
 
 const rootReducer = combineReducers({
-  images,
-  displayStyle
+  grid,
+  displayStyle,
+  imageShow
 })
 
 export default rootReducer
