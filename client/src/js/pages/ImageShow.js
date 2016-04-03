@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { HamburgerMenu, ImageComponent } from '../components'
+import { fetchImages } from '../actions'
 
 class ImageShow extends Component {
   constructor(props) {

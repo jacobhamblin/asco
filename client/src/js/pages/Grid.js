@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
 import { GridImages, Navbar } from '../components'
+import { fetchImages } from '../actions'
+import { connect } from 'react-redux'
 
 class Grid extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      images: []
-    }
   }
 
   componentDidMount() {
-    let url = '/api/images'
-    $.getJSON(url, {source: "grid"}, (data) => {
-      this.setState({
-        images: data
-      })
-    })
+    const { dispatch } = this.props
+    dispatch(fetchImages('grid'))
   }
 
   gridIconClick() {
@@ -27,7 +22,7 @@ class Grid extends Component {
   }
 
   render() {
-    const { images } = this.state
+    const { images, lastUpdated, isFetching } = this.props
     let gridImages = null
     gridImages = (images.length > 0 ? <GridImages images={images} author={true} size={'262'}/> : null)
 
@@ -47,4 +42,15 @@ class Grid extends Component {
   }
 }
 
-export default Grid
+function mapStateToProps(state) {
+  const { displayStyle } = state
+  const imagesState = state.images
+  const { images, lastUpdated, isFetching } = imagesState
+  return {
+    images,
+    lastUpdated,
+    isFetching
+  }
+}
+
+export default connect(mapStateToProps)(Grid)

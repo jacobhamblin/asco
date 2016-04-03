@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 class Feed extends Component {
   constructor(props) {
     super(props)
-    window.feed = Feed;
   }
 
   componentDidMount() {

@@ -22,10 +22,13 @@ function receiveUser(id, json) {
 export function fetchUser(id) {
   return function (dispatch) {
     dispatch(requestUser(id))
-    return fetch(`/api/users/${id}`)
-      .then(response => response.json())
-      .then(json =>
-        dispatch(receiveUser(id, json))
-    )
+    return $.getJSON(`/api/images?source=${source}`, (data) => {
+      dispatch(receiveUser(id, data))
+    })
+    // return fetch(`/api/users/${id}`)
+    //   .then(response => response.json())
+    //   .then(json =>
+    //     dispatch(receiveUser(id, json))
+    // )
   }
 }
