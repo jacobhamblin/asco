@@ -1,6 +1,10 @@
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
+let headers = new Headers()
+headers.set('Content-Type', 'application/json')
+let credentials = '_asco_session=' + Asco.SESSION_TOKEN;
+
 export const REQUEST_IMAGES = 'REQUEST_IMAGES'
 function requestImages(source) {
   return {
@@ -21,7 +25,9 @@ function receiveImages(source, json) {
 export function fetchImages(source) {
   return function (dispatch) {
     dispatch(requestImages(source))
-    return fetch(`/api/images?source=${source}`)
+    return fetch(`/api/images?source=${source}`, {
+      headers, credentials
+    })
       .then(response => response.json())
       .then(json =>
         dispatch(receiveImages(json))
