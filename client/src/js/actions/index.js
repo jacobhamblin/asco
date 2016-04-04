@@ -1,6 +1,6 @@
 export { REQUEST_USER, RECEIVE_USER, fetchUser } from './fetchUser'
 export { REQUEST_IMAGES, RECEIVE_IMAGES, fetchImages } from './fetchImages'
-export { REQUEST_IMAGES_SHOW, RECEIVE_IMAGES_SHOW, fetchImagesShow } from './fetchImagesShow'
+export { REQUEST_IMAGES_SHOW, RECEIVE_IMAGES_SHOW, findIndex, fetchImagesShow } from './fetchImagesShow'
 export { SET_VERTICAL_DISPLAY, setVerticalDisplay } from './setVerticalDisplay'
 export { SET_IMAGE_INDEX, setImageIndex } from './setImageIndex'
 export { ADJUST_INDEX, adjustIndex } from './adjustIndex'

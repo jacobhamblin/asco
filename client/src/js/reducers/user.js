@@ -1,6 +1,6 @@
 import { SET_ACTIVE_TAG, TAGS_DISPLAY, SET_ALL_TAGS, REQUEST_USER, RECEIVE_USER, SET_FOLLOW } from '../actions'
 
-function presentTag() {
+const determineActiveTag = () => {
   let split = window.location.hash.split('?')
   if (split.length === 1) {
     return false
@@ -9,13 +9,16 @@ function presentTag() {
   }
 }
 
-const user = (state = {
-  activeTag: presentTag(),
+let activeTag = determineActiveTag()
+let initialState = {
+  activeTag,
   owner: null,
   allTags: null,
   showTags: false,
   isFetching: false
-}, action) => {
+}
+
+const user = (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_TAG:
       return Object.assign({}, state, {

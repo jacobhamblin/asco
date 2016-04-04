@@ -1,4 +1,4 @@
-import { REQUEST_IMAGES_SHOW, RECEIVE_IMAGES_SHOW, ADJUST_INDEX } from '../actions'
+import { REQUEST_IMAGES_SHOW, RECEIVE_IMAGES_SHOW, ADJUST_INDEX, findIndex } from '../actions'
 
 const imageShow = (state = {
   collection: null,

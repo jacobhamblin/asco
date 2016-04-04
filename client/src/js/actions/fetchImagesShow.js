@@ -8,13 +8,18 @@ function requestImagesShow(source) {
     source
   }
 }
+export const findIndex = (source, json) => {
+  if (json === null) return -1
+  let index = -1;
+  for (let i = 0; i < json.length; i++) {
+    if (json[i].id === parseInt(source.slice(3))) index = i
+  }
+  return index
+}
 
 export const RECEIVE_IMAGES_SHOW = 'RECEIVE_IMAGES'
 function receiveImagesShow(source, json) {
-  let index = -1;
-  for (let i = 0; i < json.length; i++) {
-    if (json[i].id === parseInt(source[source.length - 1])) index = i
-  }
+  let index = findIndex(source, json)
 
   return {
     type: RECEIVE_IMAGES_SHOW,

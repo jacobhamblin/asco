@@ -28,6 +28,23 @@ class User extends Component {
     this.loadData()
   }
 
+  componentWillUpdate(props) {
+    const { dispatch } = this.props
+    const { activeTag } = props
+
+    const determineActiveTag = () => {
+      let split = window.location.hash.split('?')
+      if (split.length === 1) {
+        return false
+      } else {
+        return split[1]
+      }
+    }
+    let tag = determineActiveTag()
+
+    if (tag && !activeTag) dispatch(setActiveTag(tag))
+  }
+
   loadData() {
     const { routeParams, dispatch } = this.props
 
@@ -37,7 +54,12 @@ class User extends Component {
 
   removeActiveTag() {
     const { dispatch } = this.props
-    dispatch(setActiveTag(''))
+
+    let split = window.location.hash.split('?')
+    if (split.length === 2) {
+      window.location.hash = split[0]
+    }
+    dispatch(setActiveTag(false))
   }
 
   setActiveTag(e) {
@@ -73,7 +95,7 @@ class User extends Component {
     let { images, activeTag, user, showTags, allTags, verticalDisplay } = this.props
     let userID = (user ? user.id : null)
     let gridImages = null, header = null, activeTagEl = null, followButton = null, tagIndexOverlay = null
-    if (images.length > 0) {
+    if (images && images.length > 0) {
       if (verticalDisplay) {
         gridImages = <VerticalImages images={this.determineImages()}  size={'600'}/>
       } else {

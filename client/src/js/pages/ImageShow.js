@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { HamburgerMenu, ImageComponent } from '../components'
 import { fetchImagesShow, adjustIndex } from '../actions'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class ImageShow extends Component {
   constructor(props) {
     super(props)
     this.prevImage = this.prevImage.bind(this)
     this.nextImage = this.nextImage.bind(this)
+    this.usersTaggedImages = this.usersTaggedImages.bind(this)
     window.comp = this
   }
 
@@ -90,7 +92,7 @@ class ImageShow extends Component {
             {image.description}
             {image.tags.map(tag => {
               return (
-                <a key={i++} href={'#/users/' + image.owner.id + '?' + tag.title} className='image-tag'>
+                <a key={i++} href={'#/users/' + image.owner_id + '?' + tag.title} className='image-tag'>
                   {' #' + tag.title}
                 </a>
               )
@@ -107,6 +109,15 @@ class ImageShow extends Component {
         {content}
       </div>
     )
+  }
+
+  usersTaggedImages(e) {
+    debugger
+    const { image } = this.props
+
+    let tag = e.target.text.slice(2)
+    let url = '#/users/' + image.owner_id + '?' + tag
+    window.location = url;
   }
 }
 
