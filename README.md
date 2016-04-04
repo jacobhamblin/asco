@@ -3,21 +3,17 @@
 [Live](http://asco.hamblin.cc)
 
 ## Minimum Viable Product
-asco is a clone of vsco built on Rails and Backbone. Users can:
+asco is a clone of vsco built originally on Rails and Backbone, but now hosts React + Redux on the frontend. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [x] Create grid
-- [x] Create image show
-- [x] Create feed
 - [x] Follow users
 - [x] View a feed of followed user
 - [x] Search for images by title
 - [x] Search for images by user
 - [x] Sort Images by tags on user view
-- [x] Navigation menu on navbar-less pages
 
 ## Design Docs
 * [View Wireframes][views]
