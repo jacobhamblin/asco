@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
 import { HamburgerMenu, GridImages, VerticalImages, ActiveTag, UserHeader, FollowButton, TagIndexOverlay, GridButton } from '../components'
-
-function allTags(images) {
-  let tags = {}
-
-  images.map(image => {
-    image.tags.map(tag => {
-      tags[tag.title] = true
-    })
-  })
-
-  return Object.keys(tags)
-}
+import { connect } from 'react-redux'
+import { userFetchImages, setVerticalDisplay, setActiveTag, tagsDisplay, fetchUser, setFollow } from '../actions'
 
 function hasTag(image, tagName) {
   let result = false
@@ -26,23 +16,12 @@ function hasTag(image, tagName) {
 class User extends Component {
   constructor(props) {
     super(props)
-    let activeTag = this.presentTag()
-
     this.removeActiveTag = this.removeActiveTag.bind(this)
     this.setActiveTag = this.setActiveTag.bind(this)
     this.showTags = this.showTags.bind(this)
     this.hideTags = this.hideTags.bind(this)
     this.toggleFollow = this.toggleFollow.bind(this)
     this.toggleVertical = this.toggleVertical.bind(this)
-    this.state = {
-      images: [],
-      userID: props.routeParams.id,
-      vertical: false,
-      activeTag,
-      showTags: false,
-      user: null,
-      allTags: null
-    }
   }
 
   componentDidMount() {
@@ -50,46 +29,34 @@ class User extends Component {
   }
 
   loadData() {
-    $.getJSON('/api/images', {'source': this.state.userID}, (data) => {
-      this.setState({
-        images: data,
-        allTags: allTags(data)
-      })
-    })
-    $.getJSON('/api/users/' + this.state.userID, (data) => {
-      this.setState({
-        user: data
-      })
-    })
+    const { routeParams, dispatch } = this.props
+
+    dispatch(userFetchImages('source', routeParams.id))
+    dispatch(fetchUser(routeParams.id))
   }
 
   removeActiveTag() {
-    this.setState({
-      activeTag: false
-    })
+    const { dispatch } = this.props
+    dispatch(setActiveTag(''))
   }
 
   setActiveTag(e) {
-    this.setState({
-      activeTag: e.target.innerHTML,
-      showTags: false
-    })
+    const { dispatch } = this.props
+    dispatch(setActiveTag(e.target.innerHTML))
   }
 
   showTags() {
-    this.setState({
-      showTags: true
-    })
+    const { dispatch } = this.props
+    dispatch(tagsDisplay(true))
   }
 
   hideTags() {
-    this.setState({
-      showTags: false
-    })
+    const { dispatch } = this.props
+    dispatch(tagsDisplay(false))
   }
 
   determineImages() {
-    let { images, activeTag } = this.state
+    let { images, activeTag } = this.props
 
     if (activeTag) {
       let aggregate = []
@@ -102,20 +69,12 @@ class User extends Component {
     return images
   }
 
-  presentTag() {
-    let split = window.location.hash.split('?')
-    if (split.length === 1) {
-      return false
-    } else {
-      return split[1]
-    }
-  }
-
   render() {
-    let { images, activeTag, userID, user, showTags, allTags, vertical } = this.state
+    let { images, activeTag, user, showTags, allTags, verticalDisplay } = this.props
+    let userID = (user ? user.id : null)
     let gridImages = null, header = null, activeTagEl = null, followButton = null, tagIndexOverlay = null
     if (images.length > 0) {
-      if (this.state.vertical) {
+      if (verticalDisplay) {
         gridImages = <VerticalImages images={this.determineImages()}  size={'600'}/>
       } else {
         gridImages = <GridImages images={this.determineImages()} author={true} size={'262'}/>
@@ -143,7 +102,7 @@ class User extends Component {
             </a>
           </div>
           {followButton}
-          <GridButton toggleVertical={this.toggleVertical} vertical={vertical}/>
+          <GridButton toggleVertical={this.toggleVertical} vertical={verticalDisplay}/>
 
         </div>
 
@@ -158,29 +117,23 @@ class User extends Component {
   }
 
   toggleFollow() {
-    const { user } = this.state
+    const { user, dispatch } = this.props
+    let userID = (user ? user.id : null)
     const component = this
     const { follow, username, description, id } = user
 
     if (user.follow === "true") {
       $('.follow-btns').addClass('inter-follow-state'),
       $.ajax({
-        url: 'api/follow/' + component.state.userID + '/delete',
+        url: 'api/follow/' + userID + '/delete',
         data: {
           authenticity_token: Asco.AUTH_TOKEN,
-          recipient_id: component.state.userID
+          recipient_id: userID
         },
         dataType: 'json',
         method: 'DELETE',
         success: function(result) {
-          component.setState({
-            user: {
-              follow: "false",
-              username,
-              description,
-              id
-            }
-          })
+          dispatch(setFollow('false'))
         },
         complete: function () {
           $('.follow-btns').removeClass('inter-follow-state');
@@ -189,21 +142,14 @@ class User extends Component {
     } else {
       $('.follow-btns').addClass('inter-follow-state'),
       $.ajax({
-        url: 'api/follow/' + component.state.userID + '/create',
+        url: 'api/follow/' + userID + '/create',
         dataType: 'json',
         data: {
           authenticity_token: Asco.AUTH_TOKEN
         },
         method: 'POST',
         success: function () {
-          component.setState({
-            user: {
-              follow: "true",
-              username,
-              description,
-              id
-            }
-          })
+          dispatch(setFollow('true'))
         },
         complete: function () {
           $('.follow-btns').removeClass('inter-follow-state');
@@ -213,13 +159,29 @@ class User extends Component {
   }
 
   toggleVertical() {
-    this.setState({
-      vertical: !this.state.vertical
-    })
+    const { verticalDisplay, dispatch } = this.props
+
+    dispatch(setVerticalDisplay(!verticalDisplay))
   }
 }
 
-export default User
+function mapStateToProps(state) {
+  const { grid, verticalDisplay, user } = state
+  const { images, lastUpdated, isFetching } = grid
+  const { activeTag, showTags, owner, allTags } = user
+  return {
+    images,
+    lastUpdated,
+    isFetching,
+    activeTag,
+    showTags,
+    user: owner,
+    allTags,
+    verticalDisplay
+  }
+}
+
+export default connect(mapStateToProps)(User)
 
 
 // <div class='nav-usergrid'>

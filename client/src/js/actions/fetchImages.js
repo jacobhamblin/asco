@@ -10,7 +10,7 @@ function requestImages(source) {
 }
 
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES'
-function receiveImages(source, json) {
+function receiveImages(json) {
   return {
     type: RECEIVE_IMAGES,
     images: json,
@@ -18,12 +18,13 @@ function receiveImages(source, json) {
   }
 }
 
-export function fetchImages(source) {
+export function fetchImages(str, source, cb) {
   return function (dispatch) {
     dispatch(requestImages(source))
 
-    return $.getJSON(`/api/images?source=${source}`, (data) => {
-      dispatch(receiveImages(source, data))
+    return $.getJSON(`/api/images?${str}=${source}`, (data) => {
+      if (cb) cb(data)
+      dispatch(receiveImages(data))
     })
 
     // return fetch(`/api/images?source=${source}`, {

@@ -1,40 +1,26 @@
 import React, { Component } from 'react'
 import { Navbar, GridImages } from '../components'
 import { correctImageSize, renderGrid } from '../utils'
+import { searchImages } from '../actions'
+import { connect } from 'react-redux'
 
 class Search extends Component {
   constructor(props) {
     super(props)
     this.searchImagesEvent = this.searchImagesEvent.bind(this)
-    this.state = {
-      images: [],
-      searchQuery: this.searchQuery()
-    }
   }
 
   componentDidMount() {
-    let { searchQuery } = this.state
-    if (searchQuery !== null) {
-      this.searchImages(searchQuery)
-      document.querySelector('input').value = searchQuery
-    }
-  }
-
-  searchQuery() {
-    let split = window.location.hash.split('?')
-    if (split.length === 1) {
-      return null
-    } else {
-      return split[1]
+    let { query } = this.props
+    if (query !== null) {
+      this.searchImages(query)
+      document.querySelector('input').value = query
     }
   }
 
   searchImages(query) {
-    $.getJSON('/api/images', {query: query}, (data) => {
-      this.setState({
-        images: data
-      })
-    })
+    const { dispatch } = this.props
+    dispatch(searchImages(query))
   }
 
   searchImagesEvent(e) {
@@ -43,7 +29,7 @@ class Search extends Component {
   }
 
   render() {
-    const { images } = this.state
+    const { images } = this.props
     let gridImages = null
     gridImages = (images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
 
@@ -67,4 +53,16 @@ class Search extends Component {
   }
 }
 
-export default Search
+function mapStateToProps(state) {
+  const { grid, search } = state;
+  const { images, lastUpdated, isFetching } = grid;
+  const { query } = search;
+  return {
+    query,
+    images,
+    lastUpdated,
+    isFetching
+  }
+}
+
+export default connect(mapStateToProps)(Search)

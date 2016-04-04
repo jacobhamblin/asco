@@ -6,11 +6,12 @@ import { connect } from 'react-redux'
 class Feed extends Component {
   constructor(props) {
     super(props)
+    window.feed = this
   }
 
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(fetchImages('feed'))
+    dispatch(fetchImages('source', 'feed'))
   }
 
   render() {
@@ -39,7 +40,7 @@ class Feed extends Component {
 }
 
 function mapStateToProps(state) {
-  const { grid, displayStyle } = state
+  const { grid } = state
   const { images, lastUpdated, isFetching } = grid
   return {
     images,

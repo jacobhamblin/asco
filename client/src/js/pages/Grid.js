@@ -10,7 +10,7 @@ class Grid extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(fetchImages('grid'))
+    dispatch(fetchImages('source', 'grid'))
   }
 
   gridIconClick() {
@@ -43,7 +43,7 @@ class Grid extends Component {
 }
 
 function mapStateToProps(state) {
-  const { grid, displayStyle } = state
+  const { grid } = state
   const { images, lastUpdated, isFetching } = grid
   return {
     images,

@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux'
 import grid from './grid'
-import displayStyle from './displayStyle'
+import verticalDisplay from './verticalDisplay'
 import imageShow from './imageShow'
+import search from './search'
+import user from './user'
 
 const rootReducer = combineReducers({
   grid,
-  displayStyle,
-  imageShow
+  verticalDisplay,
+  imageShow,
+  search,
+  user
 })
 
 export default rootReducer

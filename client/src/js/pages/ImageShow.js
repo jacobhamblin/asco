@@ -111,7 +111,7 @@ class ImageShow extends Component {
 }
 
 function mapStateToProps(state) {
-  const { imageShow, displayStyle } = state
+  const { imageShow } = state
   const { image, lastUpdated, isFetching, collection, index } = imageShow
   return {
     image,
