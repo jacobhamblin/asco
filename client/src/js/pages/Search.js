@@ -31,7 +31,7 @@ class Search extends Component {
   render() {
     const { images } = this.props
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
+    gridImages = (images && images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
 
     return (
       <div className="search">

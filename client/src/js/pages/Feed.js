@@ -17,7 +17,7 @@ class Feed extends Component {
   render() {
     const { images, lastUpdated, isFetching } = this.props
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages author={true} images={images} size={'262'}/> : null)
+    gridImages = (images && images.length > 0 ? <GridImages author={true} images={images} size={'262'}/> : null)
 
     return (
       <div className="feed">

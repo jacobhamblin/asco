@@ -24,7 +24,7 @@ class Grid extends Component {
   render() {
     const { images, lastUpdated, isFetching } = this.props
     let gridImages = null
-    gridImages = (images.length > 0 ? <GridImages images={images} author={true} size={'262'}/> : null)
+    gridImages = (images && images.length > 0 ? <GridImages images={images} author={true} size={'262'}/> : null)
 
     return (
       <div className="grid">
