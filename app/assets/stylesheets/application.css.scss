@@ -486,6 +486,8 @@
  	flex-flow: row wrap;
   .item {
     width: 300px;
+    height: 400px;
+    margin-bottom: 100px;
     img {
       transition: -webkit-filter .15s ease;
       &:hover {

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { GridImages, Navbar } from '../components'
-import { fetchImages } from '../actions'
+import { GridImages, Navbar, Scroller } from '../components'
 import { connect } from 'react-redux'
+import { fetchImages } from '../actions'
 
 class Feed extends Component {
   constructor(props) {
     super(props)
-    window.feed = this
   }
 
   componentDidMount() {
@@ -15,13 +14,14 @@ class Feed extends Component {
   }
 
   render() {
-    const { images, lastUpdated, isFetching } = this.props
+    const { images, lastUpdated, isFetching, scroll } = this.props
     let gridImages = null
-    gridImages = (images && images.length > 0 ? <GridImages author={true} images={images} size={'262'}/> : null)
+    gridImages = (images && images.length > 0 ? <GridImages author={true} images={images.slice(0, scroll.blocksLoaded * 12)} size={'262'}/> : null)
 
     return (
-      <div className="feed">
-        <Navbar/>
+      <Scroller>
+        <div className="feed">
+          <Navbar/>
           <div className="feed-header">
             <div className="white-pixel">
               <img src="https://s3-us-west-1.amazonaws.com/asco-jkh/layout/whitepixel.png"/>
@@ -33,19 +33,20 @@ class Feed extends Component {
             </div>
           </div>
           {gridImages}
-
-      </div>
+        </div>
+      </Scroller>
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { grid } = state
+  const { grid, scroll } = state
   const { images, lastUpdated, isFetching } = grid
   return {
     images,
     lastUpdated,
-    isFetching
+    isFetching,
+    scroll
   }
 }
 
