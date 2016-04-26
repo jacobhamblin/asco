@@ -31,26 +31,24 @@ class Search extends Component {
   render() {
     const { images } = this.props
     let gridImages = null
-    gridImages = (images && images.length > 0 ? <GridImages images={images.slice(0, scroll.blocksLoaded * 12)} size={'262'}/> : null)
+    gridImages = (images && images.length > 0 ? <GridImages images={images} size={'262'}/> : null)
 
     return (
-      <Scroller>
-        <div className="search">
-          <Navbar/>
-          <div className="search-header">
-            <center>
-            <input className="search-field" type="text" placeholder="user or tag, ex: dan" onKeyUp={this.searchImagesEvent}/>
-            <ul className="search-options">
-              <li>images</li>
-            </ul>
-            </center>
-          </div>
-
-          <div className="search-grid">
-            {gridImages}
-          </div>
+      <div className="search">
+        <Navbar/>
+        <div className="search-header">
+          <center>
+          <input className="search-field" type="text" placeholder="user or tag, ex: dan" onKeyUp={this.searchImagesEvent}/>
+          <ul className="search-options">
+            <li>images</li>
+          </ul>
+          </center>
         </div>
-      </Scroller>
+
+        <div className="search-grid">
+          {gridImages}
+        </div>
+      </div>
     )
   }
 }

@@ -33,8 +33,8 @@ class ImageComponent extends Component {
     this.fetchImage()
   }
 
-  componentWillReceiveProps() {
-    this.setState({img: null})
+  componentWillReceiveProps(props) {
+    if (props.src !== this.props.src) this.setState({img: null})
   }
 
   componentDidUpdate() {
